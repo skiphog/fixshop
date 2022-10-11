@@ -16,3 +16,29 @@ if (!function_exists('time_to_read')) {
         return (int)ceil($count / 1500);
     }
 }
+
+if (!function_exists('make_tree')) {
+    /**
+     * Построить дерево
+     *
+     * @param array $data
+     *
+     * @return array
+     */
+    function make_tree(array &$data): array
+    {
+        $tree = [];
+
+        foreach ($data as $id => &$node) {
+            if (!$node['parent_id']) {
+                $tree[$id] = &$node;
+                continue;
+            }
+            $data[$node['parent_id']]['children'][$node['id']] = &$node;
+        }
+
+        unset($node);
+
+        return $tree;
+    }
+}

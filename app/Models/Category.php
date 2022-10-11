@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Support\Carbon;
+use App\Models\Traits\Sortable;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -30,7 +32,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Category extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, Sortable;
 
     /**
      * @var string
@@ -46,6 +48,29 @@ class Category extends Model
      * @var array
      */
     protected $guarded = [];
+
+    /**
+     * @var string[]
+     */
+    protected $casts = [
+        'breadcrumbs' => 'array'
+    ];
+
+    /**
+     * @return array
+     */
+    public static function tree(): array
+    {
+        return Cache::rememberForever('categories_tree', static function () {
+            $categories = static::select(['id', 'parent_id', 'slug', 'nav'])
+                ->sorted()
+                ->get()
+                ->keyBy('id')
+                ->toArray();
+
+            return make_tree($categories);
+        });
+    }
 
     /**
      * @return HasMany
