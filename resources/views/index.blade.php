@@ -5,5 +5,4 @@
 
 @section('content')
     <h1>FUCK YOU! TO</h1>
-
 @endsection
