@@ -1,0 +1,19 @@
+/.idea
+/node_modules
+/storage/*.key
+/vendor
+.env
+.env.backup
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+yarn-error.log
+composer.lock
+package.lock
+
+# Project exclude paths
+/storage/
+/storage/app/
+/storage/framework/
