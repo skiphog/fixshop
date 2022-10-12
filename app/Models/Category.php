@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Support\Carbon;
 use App\Models\Traits\Sortable;
+use App\Events\CategoryUpdated;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -57,6 +58,13 @@ class Category extends Model
     ];
 
     /**
+     * @var string[]
+     */
+    protected $dispatchesEvents = [
+        'updated' => CategoryUpdated::class
+    ];
+
+    /**
      * @return array
      */
     public static function tree(): array
@@ -70,6 +78,33 @@ class Category extends Model
 
             return make_tree($categories);
         });
+    }
+
+    /**
+     * @param int    $parent_id
+     * @param string $code
+     *
+     * @return array
+     */
+    public static function makeData(int $parent_id, string $code): array
+    {
+        $data = [
+            'slug'        => $code,
+            'breadcrumbs' => []
+        ];
+
+        if (0 !== $parent_id) {
+            $category = static::withTrashed()->find($parent_id, ['title', 'slug', 'breadcrumbs']);
+            $data['slug'] = "{$category->slug}/{$code}";
+            $data['breadcrumbs'] = array_merge($category->breadcrumbs, [
+                [
+                    'url'   => $category->slug,
+                    'title' => $category->title
+                ]
+            ]);
+        }
+
+        return $data;
     }
 
     /**

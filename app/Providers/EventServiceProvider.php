@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Events\CategoryUpdated;
 use Illuminate\Auth\Events\Registered;
+use App\Listeners\ChangeCategoryChild;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
@@ -15,9 +17,12 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        Registered::class => [
+        Registered::class      => [
             SendEmailVerificationNotification::class,
         ],
+        CategoryUpdated::class => [
+            ChangeCategoryChild::class
+        ]
     ];
 
     /**
