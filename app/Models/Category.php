@@ -94,13 +94,10 @@ class Category extends Model
         ];
 
         if (0 !== $parent_id) {
-            $category = static::withTrashed()->find($parent_id, ['nav', 'slug', 'breadcrumbs']);
+            $category = static::withTrashed()->find($parent_id, ['id', 'nav', 'slug', 'breadcrumbs']);
             $data['slug'] = "{$category->slug}/{$code}";
             $data['breadcrumbs'] = array_merge($category->breadcrumbs, [
-                [
-                    'url'   => $category->slug,
-                    'title' => $category->nav
-                ]
+                ['id' => $category->id, 'slug' => $category->slug, 'nav' => $category->nav]
             ]);
         }
 
