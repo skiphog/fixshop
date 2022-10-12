@@ -7,11 +7,12 @@ Route::get('/', [IndexController::class, 'index'])->name('index');
 
 Route::group(['prefix' => 'categories', 'as' => 'categories.', 'middleware' => []], static function () {
     Route::get('/', [CategoryController::class, 'index'])->name('index');
+    Route::get('/create', [CategoryController::class, 'create'])->name('create');
+    Route::post('/create', [CategoryController::class, 'store'])->name('store');
     Route::get('/{category}/edit', [CategoryController::class, 'edit'])
         ->withTrashed()
         ->name('edit');
     Route::post('/{category}/edit', [CategoryController::class, 'update'])
         ->withTrashed()
         ->name('update');
-
 });

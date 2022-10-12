@@ -20,6 +20,29 @@ class CategoryController extends Controller
     }
 
     /**
+     * @return View
+     */
+    public function create(): View
+    {
+        return view('admin.categories.create')
+            ->with('category', new Category());
+    }
+
+    /**
+     * @param CategoryRequest $request
+     *
+     * @return RedirectResponse
+     */
+    public function store(CategoryRequest $request): RedirectResponse
+    {
+        $category = Category::create($request->validated());
+
+        return redirect()
+            ->route('admin.categories.edit', $category)
+            ->with('success', 'Категория создана');
+    }
+
+    /**
      * @param Category $category
      *
      * @return View
@@ -40,6 +63,8 @@ class CategoryController extends Controller
         $category->update($request->validated());
         Cache::forget('categories_tree');
 
-        return redirect()->route('admin.categories.index');
+        return redirect()
+            ->route('admin.categories.edit', $category)
+            ->with('success', 'Категория обновлена');
     }
 }
