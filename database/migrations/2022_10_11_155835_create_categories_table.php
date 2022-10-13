@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration {
     /**
@@ -32,7 +32,7 @@ return new class extends Migration {
             $table->index('parent_id');
             $table->unique('code');
             $table->unique('slug');
-            $table->index('sort');
+            $table->index(['parent_id', 'sort']);
         });
     }
 

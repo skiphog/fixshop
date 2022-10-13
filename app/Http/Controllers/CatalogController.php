@@ -15,7 +15,10 @@ class CatalogController extends Controller
 
     public function show(Category $category)
     {
-        $category->load(['children' => static fn($q) => $q->sorted()]);
+        $category->load([
+            'children' => static fn($q) => $q->sorted(),
+            'products' => static fn($q) => $q->sorted()
+        ]);
 
         return view('catalog.show', compact('category'));
     }

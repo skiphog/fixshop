@@ -28,7 +28,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property Carbon|null $deleted_at
  *
  * @property Category[]  $children
+ * @property Product[]   $products
  * @property-read int    $children_count
+ * @property-read int    $products_count
  * @property Category    $parent
  */
 class Category extends Model
@@ -118,5 +120,13 @@ class Category extends Model
     public function parent(): BelongsTo
     {
         return $this->belongsTo(static::class, 'parent_id', 'id');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function products(): HasMany
+    {
+        return $this->hasMany(Product::class, 'category_id', 'id');
     }
 }
