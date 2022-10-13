@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs(['admin.categories.index', 'admin.categories.edit', 'admin.categories.create']) ? 'active': '' }}"
+                        <a class="nav-link {{ request()->routeIs('admin.categories.*') ? 'active': '' }}"
                                 href="{{ route('admin.categories.index') }}">Категории</a>
                     </li>
                     <li class="nav-item">
