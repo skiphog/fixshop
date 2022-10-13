@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\RubricController;
 use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\ArticleController;
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 
@@ -11,4 +13,10 @@ Route::group(['prefix' => 'catalog', 'as' => 'catalog.', 'middleware' => []], st
     Route::get('/{category:slug}', [CatalogController::class, 'show'])
         ->where('category', '.*')
         ->name('show');
+});
+
+Route::group(['prefix' => '/blog', 'as' => 'blog.'], static function () {
+    Route::get('/', [RubricController::class, 'index'])->name('index');
+    Route::get('/{rubric:slug}', [RubricController::class, 'show'])->name('show');
+    Route::get('/{rubric:slug}/{article:slug}', [ArticleController::class, 'show'])->name('article.show');
 });
