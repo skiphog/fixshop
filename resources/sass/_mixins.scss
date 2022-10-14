@@ -1,0 +1,27 @@
+@mixin hook-base-body() {
+  overflow-y: scroll;
+}
+
+@mixin hook-form-single-line() {
+  border-radius: .375rem;
+}
+
+@mixin hook-button() {
+  text-transform: $button-text-transform;
+  transition: 0.1s ease-in-out;
+  transition-property: color, background-color, border-color;
+  border-radius: .375rem;
+  user-select: none;
+}
+
+@mixin hook-button-primary() {
+  border: none;
+}
+
+@mixin hook-button-secondary() {
+  border: none;
+}
+
+@mixin hook-button-danger() {
+  border: none;
+}
