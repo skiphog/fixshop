@@ -1,10 +1,6 @@
 window.$ = window.jQuery = require('jquery');
 $.ajaxSetup({ headers: { 'X-Key': document.querySelector('meta[name="csrf-token"]').content } });
 
-import UIkit from 'uikit';
-import Icons from 'uikit/dist/js/uikit-icons';
+window.bootstrap = require('bootstrap');
 
-// loads the Icon plugin
-UIkit.use(Icons);
-
-window.UIkit = UIkit;
+//import * as bootstrap from 'bootstrap'
