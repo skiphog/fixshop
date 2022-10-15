@@ -40,7 +40,7 @@
     </nav>
 </header>
 <main class="flex-shrink-0">
-    <div class="container">
+    <div class="container container-lg">
         @yield('content')
     </div>
 </main>
