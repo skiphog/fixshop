@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Support\Carbon;
 use App\Models\Traits\Sortable;
-use App\Events\CategoryUpdated;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -57,13 +56,6 @@ class Category extends Model
      */
     protected $casts = [
         'breadcrumbs' => 'array'
-    ];
-
-    /**
-     * @var string[]
-     */
-    protected $dispatchesEvents = [
-        'updated' => CategoryUpdated::class
     ];
 
     /**
