@@ -27,7 +27,7 @@
                 </ol>
             </nav>
             <h1>Каталог товаров</h1>
-            @include('catalog.catalog', compact('categories'))
+            @include('catalog.categories', compact('categories'))
         </div>
     </div>
 

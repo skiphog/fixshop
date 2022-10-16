@@ -27,11 +27,8 @@
                     <li class="breadcrumb-item active"><span>{{ $category->nav }}</span></li>
                 </ol>
             </nav>
-
             <div class="d-flex flex-column flex-sm-row align-items-sm-center p-1 p-sm-3 bg-light mb-3 rounded-3 border shadow-sm">
-                <div>
-                    <img src="{{ "/images/{$category->img}" }}" width="150" height="100" alt="{{ $category->title }}">
-                </div>
+                <img src="{{ asset($category->img) }}" width="150" height="100" alt="{{ $category->title }}">
                 <div class="p-1 p-sm-3">
                     <h1>{{ $category->title }}</h1>
                     @if(!empty($category->standard))
@@ -46,8 +43,8 @@
                     </div>
                 </div>
             </div>
-
-            @include('catalog.catalog', ['categories' => $category->children])
+            @include('catalog.categories', ['categories' => $category->children])
+            @include('catalog.products', ['products' => $category->products])
         </div>
     </div>
 @endsection

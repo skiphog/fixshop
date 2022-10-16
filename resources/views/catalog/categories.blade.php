@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @var \App\Models\Category[] $categories
+ * @var \App\Models\Category[]|\Illuminate\Database\Eloquent\Collection $categories
  */
 
 ?>
@@ -10,7 +10,7 @@
         @foreach($categories as $category)
             <div class="col">
                 <a class="card align-items-center h-100 p-2 fix-category" href="{{ route('catalog.show', $category) }}">
-                    <img class="img-fluid" src="{{ "/images/{$category->img}" }}" width="150" height="100" alt="{{ $category->title }}">
+                    <img class="img-fluid" src="{{ asset($category->img) }}" width="150" height="100" alt="{{ $category->title }}">
                     <div class="card-body d-flex flex-column px-1 pt-3 pb-1">
                         <h6 class="text-dark">{{ $category->title }}</h6>
                         <div class="mt-auto text-muted">{{ $category->standard }}</div>

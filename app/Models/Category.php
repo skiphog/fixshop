@@ -130,7 +130,7 @@ class Category extends Model
     protected function img(): Attribute
     {
         return Attribute::make(
-            get: static fn($value) => $value ?: 'no_image.png',
+            get: static fn($value) => '/images/' . ($value ?: 'no_image.png'),
         );
     }
 }
