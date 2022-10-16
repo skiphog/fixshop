@@ -1,34 +1,38 @@
-import NProgress from 'nprogress';
+//import NProgress from 'nprogress';
 
-if (window.history && history.pushState) {
-  window.addEventListener('popstate', function () {
-    console.log(window.location.href);
-  });
-
+if (window.history && window.history.pushState) {
   const _c = $('#catalog');
-  let send = true;
+
+  function getCatalog (link) {
+    //NProgress.start();
+    $.getJSON(link)
+      .done(function (json) {
+        if ('title' in json && 'content' in json) {
+          document.title = json['title'];
+          _c.html(json['content']);
+          $('html:not(:animated),body:not(:animated)').animate({ scrollTop: 0 }, 0);
+        }
+      })
+      .fail(() => alert('Forbidden!'))
+      .always(() => {
+        //NProgress.done();
+      });
+  }
 
   _c.on('click', 'a.catalog-link', function (e) {
     e.preventDefault();
-    if (send) {
-      send = false;
-      const link = this.href;
-      NProgress.start();
-
-      $.getJSON(this.href)
-        .done(function (json) {
-          if ('title' in json && 'content' in json) {
-            document.title = json['title'];
-            _c.html(json['content']);
-            window.history.pushState({}, '', link);
-            $('html:not(:animated),body:not(:animated)').animate({ scrollTop: 0 }, 0);
-          }
-        })
-        .fail(() => alert('Forbidden!'))
-        .always(() => {
-          NProgress.done();
-          send = true;
-        });
+    if (this.href !== window.location.href) {
+      window.history.pushState(null, '', this.href);
+      //window.history.replaceState(null, '', this.href);
     }
+
+    getCatalog(this.href);
+  });
+
+  window.addEventListener('popstate', function () {
+    if ('/catalog' === window.location.pathname) {
+      return window.location.replace('/catalog');
+    }
+    getCatalog(window.location.href);
   });
 }
