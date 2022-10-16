@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     @stack('styles')
 </head>
-@include('layouts.partials.svg')
+@yield('icons')
 <body class="d-flex flex-column h-100">
 <header class="navbar navbar-expand-md fixed-top bg-simple">
     <nav class="container-lg">

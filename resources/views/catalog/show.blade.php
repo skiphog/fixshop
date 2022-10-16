@@ -10,6 +10,10 @@
 @section('title', $category->title)
 @section('description', $category->title)
 
+@section('icons')
+    @include('partials.icons')
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-4 col-lg-3 d-none d-md-block">
