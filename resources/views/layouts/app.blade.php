@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     @stack('styles')
 </head>
-@yield('icons')
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    @stack('icons')
+</svg>
 <body class="d-flex flex-column h-100">
 <header class="navbar navbar-expand-md fixed-top bg-simple">
     <nav class="container-lg">
@@ -40,12 +42,12 @@
         </div>
     </nav>
 </header>
-<main class="flex-shrink-0">
+<main class="flex-shrink-0 mb-5">
     <div class="container-lg">
         @yield('content')
     </div>
 </main>
-<footer class="footer mt-auto py-3 bg-light bg-simple-footer">
+<footer class="footer bg-light bg-simple-footer py-3 mt-auto">
     <div class="container">
         <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
             <p class="col-md-4 mb-0 text-muted">&copy; {{ date('Y') }} &mdash; {{ config('app.name') }}</p>

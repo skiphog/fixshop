@@ -13,12 +13,13 @@
 @section('content')
     <div class="row">
         <div class="col-md-4 col-lg-3 d-none d-md-block">
-            <ul class="list-unstyled">
-                <li class="mb-3"><a href="{{ route('catalog.index') }}">Каталог</a></li>
-                @foreach($categories as $category)
-                    <li><a href="{{ route('catalog.show', $category) }}">{{ $category->nav }}</a></li>
-                @endforeach
-            </ul>
+            <div class="fix-menu">
+                <ul class="list-unstyled">
+                    @foreach($categories as $category)
+                        <li><a href="{{ route('catalog.show', $category) }}">{{ $category->nav }}</a></li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
         <div class="col-md-8 col-lg-9">
             <nav aria-label="breadcrumb">

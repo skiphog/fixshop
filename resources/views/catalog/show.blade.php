@@ -10,14 +10,16 @@
 @section('title', $category->title)
 @section('description', $category->title)
 
-@section('icons')
-    @include('partials.icons')
-@endsection
+@push('icons')
+    @include('catalog.icons')
+@endpush
 
 @section('content')
     <div class="row">
         <div class="col-md-4 col-lg-3 d-none d-md-block">
-            @include('catalog.menu', ['catalog' => \App\Models\Category::tree(), 'class' => 'list-unstyled'])
+            <div class="fix-menu">
+                @include('catalog.menu', ['catalog' => \App\Models\Category::tree(), 'class' => 'list-unstyled'])
+            </div>
         </div>
         <div class="col-md-8 col-lg-9">
             <nav aria-label="breadcrumb">
@@ -41,7 +43,6 @@
                     @if(!empty($category->extra))
                         <p class="text-black-50"><small>{{ $category->extra }}</small></p>
                     @endif
-
                     <div class="mb-3">
                         {!! $category->content !!}
                     </div>

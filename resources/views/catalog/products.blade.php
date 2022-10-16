@@ -6,7 +6,7 @@
 
 ?>
 @if($products->isNotEmpty())
-    <div class="container-lg bg-light mb-5 rounded-3 border shadow-sm">
+    <div class="container-lg bg-light rounded-3 border shadow-sm">
         @foreach($products as $product)
             <div class="p-4 p-lg-1 bg-white my-2 rounded-3 border shadow-sm">
                 <div class="product row gy-3 gy-lg-0 align-items-center">
@@ -29,7 +29,7 @@
                     <div class="col-lg-2 col-xl-1">
                         <button type="button" class="btn btn-primary">
                             <svg class="bi" width="16" height="16">
-                                <use xlink:href="#basket"></use>
+                                <use xlink:href="#icon-basket"></use>
                             </svg>
                         </button>
                     </div>

@@ -1,0 +1,29 @@
+.fix-menu {
+  position: sticky;
+  top: $body-padding-top;
+  padding-bottom: $body-padding-top;
+
+  //scrollbar-color: rgba(0, 0, 0, .2) rgba(255, 255, 255, .1);
+  //scrollbar-width: thin;
+
+  height: 100vh;
+  max-height: 100vh;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 6px !important;
+    height: 6px !important
+  }
+
+  &::-webkit-scrollbar-thumb {
+    box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+    background-color: #dee2e6;
+    border-radius: 6px !important;
+  }
+
+  &::-webkit-scrollbar-track {
+    //background: rgba(255, 255, 255, .5)
+    background: rgba(#dee2e6, .1);
+  }
+}

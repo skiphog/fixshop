@@ -8,7 +8,9 @@ class CatalogController extends Controller
 {
     public function index()
     {
-        $categories = Category::where('parent_id', 0)->sorted()->get();
+        $categories = Category::where('parent_id', 0)
+            ->sorted()
+            ->get();
 
         return view('catalog.index', compact('categories'));
     }
