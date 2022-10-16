@@ -63,7 +63,7 @@
             <div class="form-floating @error('standard') is-invalid @enderror">
                 <input type="text" class="form-control @error('standard') is-invalid @enderror" id="standard"
                         name="standard" value="{{ old('standard', $category->standard) }}" placeholder="Спецификация">
-                <label class="text-muted" for="standard">Спецификация</label>
+                <label class="text-muted" for="standard">ГОСТ, стандарт, спецификация</label>
             </div>
             @error('standard')
             <div class="invalid-tooltip">{{ $message }}</div>
@@ -73,7 +73,7 @@
             <div class="form-floating @error('extra') is-invalid @enderror">
                 <input type="text" class="form-control @error('extra') is-invalid @enderror" id="extra"
                         name="extra" value="{{ old('extra', $category->extra) }}" placeholder="Дополнительно">
-                <label class="text-muted" for="extra">Дополнительно</label>
+                <label class="text-muted" for="extra">Предназначение, дополнительное инфо</label>
             </div>
             @error('extra')
             <div class="invalid-tooltip">{{ $message }}</div>
@@ -111,11 +111,11 @@
     </div>
 </form>
 @push('scripts')
-<script>
-  document.querySelector('#category-form').addEventListener('submit', function () {
-    const _b = this.querySelector('button[type=submit]');
-    _b.setAttribute('disabled', 'disabled');
-    _b.innerHTML = '<span class="spinner-grow spinner-grow-sm"></span> Отправляю ...';
-  });
-</script>
+    <script>
+      document.querySelector('#category-form').addEventListener('submit', function () {
+        const _b = this.querySelector('button[type=submit]');
+        _b.setAttribute('disabled', 'disabled');
+        _b.innerHTML = '<span class="spinner-grow spinner-grow-sm"></span> Отправляю ...';
+      });
+    </script>
 @endpush

@@ -27,18 +27,7 @@
                 </ol>
             </nav>
             <h1>Каталог товаров</h1>
-            <div class="row text-center row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4 mb-5">
-                @foreach($categories as $category)
-                    <div class="col">
-                        <a class="card align-items-center h-100 p-1" href="{{ route('catalog.show', $category) }}">
-                            <img class="img-fluid" src="{{ "/images/{$category->img}" }}" width="150" height="100" alt="{{ $category->title }}">
-                            <div class="card-body">
-                                <h6 class="card-subtitle text-muted">{{ $category->title }}</h6>
-                            </div>
-                        </a>
-                    </div>
-                @endforeach
-            </div>
+            @include('catalog.catalog', compact('categories'))
         </div>
     </div>
 

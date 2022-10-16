@@ -11,7 +11,7 @@
 </head>
 <body class="d-flex flex-column h-100">
 <header class="navbar navbar-expand-md fixed-top bg-simple">
-    <nav class="container">
+    <nav class="container-lg">
         <a class="navbar-brand" href="{{ route('index') }}">
             <img class="d-inline-block" src="/images/bootstrap-logo.svg" width="30" height="24" alt="{{ config('app.name') }}">
             <span>{{ config('app.name') }}</span>
@@ -40,7 +40,7 @@
     </nav>
 </header>
 <main class="flex-shrink-0">
-    <div class="container container-lg">
+    <div class="container-lg">
         @yield('content')
     </div>
 </main>
