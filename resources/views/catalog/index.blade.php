@@ -10,13 +10,19 @@
 @section('title', 'Каталог')
 @section('description', 'Каталог')
 
+@push('icons')
+    @include('catalog.icons')
+@endpush
+
 @section('content')
-    <div class="row">
+    <div id="catalog" class="row">
         <div class="col-md-4 col-lg-3 d-none d-md-block">
             <div class="fix-menu">
                 <ul class="list-unstyled">
                     @foreach($categories as $category)
-                        <li><a href="{{ route('catalog.show', $category) }}">{{ $category->nav }}</a></li>
+                        <li>
+                            <a class="catalog-link" href="{{ route('catalog.show', $category) }}">{{ $category->nav }}</a>
+                        </li>
                     @endforeach
                 </ul>
             </div>
@@ -31,5 +37,8 @@
             @include('catalog.categories', compact('categories'))
         </div>
     </div>
-
 @endsection
+
+@push('scripts')
+    <script src="{{ asset('js/catalog.js') }}"></script>
+@endpush

@@ -4,3 +4,7 @@ mix
   .js('resources/js/app.js', '/js/app.js')
   .sass('resources/sass/app.scss', '/css')
   .options({ processCssUrls: false });
+
+mix.js('resources/js/catalog.js', '/js/catalog.js');
+
+//mix.babel('resources/js/catalog.js', `${__dirname}/public/js/catalog.js`);
