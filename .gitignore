@@ -13,6 +13,8 @@ npm-debug.log
 yarn-error.log
 composer.lock
 package-lock.json
+Nginx_1.21_vhost.conf
+package.json
 
 # Project exclude paths
 /storage/
