@@ -12,6 +12,7 @@
   "devDependencies": {
     "axios": "^1.1.2",
     "bootstrap": "^5.2.2",
+    "@popperjs/core": "^2.11.6",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "jquery": "^3.6.0",
@@ -38,8 +39,5 @@
     "iOS >= 12",
     "Safari >= 12",
     "not Explorer <= 11"
-  ],
-  "dependencies": {
-    "@popperjs/core": "^2.11.6"
-  }
+  ]
 }
