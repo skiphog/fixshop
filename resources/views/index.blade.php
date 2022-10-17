@@ -61,7 +61,7 @@
             <div class="col d-flex align-items-start">
                 <div class="icon-square text-bg-success d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
                     <svg class="bi" width="1em" height="1em">
-                        <use xlink:href="#icon-cpu"></use>
+                        <use xlink:href="#icon-scales"></use>
                     </svg>
                 </div>
                 <div>
@@ -85,7 +85,7 @@
             <div class="col d-flex align-items-start">
                 <div class="icon-square text-bg-success d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
                     <svg class="bi" width="1em" height="1em">
-                        <use xlink:href="#icon-bitcoin"></use>
+                        <use xlink:href="#icon-ruble"></use>
                     </svg>
                 </div>
                 <div>
@@ -97,7 +97,7 @@
             <div class="col d-flex align-items-start">
                 <div class="icon-square text-bg-success d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
                     <svg class="bi" width="1em" height="1em">
-                        <use xlink:href="#icon-smartwatch"></use>
+                        <use xlink:href="#icon-clock"></use>
                     </svg>
                 </div>
                 <div>
@@ -109,7 +109,7 @@
             <div class="col d-flex align-items-start">
                 <div class="icon-square text-bg-success d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
                     <svg class="bi" width="1em" height="1em">
-                        <use xlink:href="#icon-car"></use>
+                        <use xlink:href="#icon-truck"></use>
                     </svg>
                 </div>
                 <div>

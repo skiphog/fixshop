@@ -33,7 +33,7 @@
                 <li class="nav-item"><a class="nav-link" href="#">Акции</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Прайсы</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Сертификаты</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Блог</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('blog.index') }}">Блог</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Контакты</a></li>
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-md-0">
