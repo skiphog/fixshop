@@ -21,7 +21,7 @@ return new class extends Migration {
             $table->decimal('price', 15, 2, true)->default(0)->comment('Цена');
             $table->enum('unit',
                 ['шт', 'тыс. шт', 'кг', 'упак', 'набор', 'м', 'пар', 'рул', 'компл'])->comment('Ед. изм.');
-            $table->decimal('weight', 15, 3)->default(0)->comment('Вес');
+            $table->decimal('weight', 15, 3, true)->default(0)->comment('Вес');
             $table->decimal('quantity', 15, 3)->default(0)->comment('Количество');
             $table->unsignedInteger('packing')->default(0)->comment('Упаковка');
             $table->unsignedInteger('sort')->default(0)->comment('Сортировка');

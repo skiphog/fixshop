@@ -13,6 +13,7 @@ class CategoryObserver
      * @param Category $category
      *
      * @return void
+     * @noinspection PhpUnusedParameterInspection
      */
     public function created(Category $category): void
     {
@@ -41,6 +42,7 @@ class CategoryObserver
      * @param Category $category
      *
      * @return void
+     * @noinspection PhpUnusedParameterInspection
      */
     public function deleted(Category $category): void
     {
@@ -53,6 +55,8 @@ class CategoryObserver
      * @param Category $category
      *
      * @return void
+     * @noinspection PhpUnused
+     * @noinspection PhpUnusedParameterInspection
      */
     public function restored(Category $category): void
     {
@@ -65,6 +69,8 @@ class CategoryObserver
      * @param Category $category
      *
      * @return void
+     * @noinspection PhpUnused
+     * @noinspection PhpUnusedParameterInspection
      */
     public function forceDeleted(Category $category): void
     {

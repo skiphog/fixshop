@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Models\Category;
+use App\Events\CartItemUpdated;
+use App\Listeners\CartRegenerate;
 use App\Observers\CategoryObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -16,13 +18,12 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        Registered::class => [
+        Registered::class      => [
             SendEmailVerificationNotification::class,
         ],
-        // Используется CategoryObserver
-        /*CategoryUpdated::class => [
-            ChangeCategoryChild::class
-        ]*/
+        CartItemUpdated::class => [
+            CartRegenerate::class
+        ],
     ];
 
     /**

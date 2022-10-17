@@ -2,25 +2,25 @@
 
 namespace App\Events;
 
-use App\Models\Category;
+use App\Models\CartItem;
 use Illuminate\Queue\SerializesModels;
 
-class CategoryUpdated
+class CartItemUpdated
 {
     use SerializesModels;
 
     /**
-     * @var Category
+     * @var CartItem
      */
-    public Category $category;
+    public CartItem $cartItem;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Category $category)
+    public function __construct(CartItem $cartItem)
     {
-        $this->category = $category;
+        $this->cartItem = $cartItem;
     }
 }
