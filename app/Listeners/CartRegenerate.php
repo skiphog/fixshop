@@ -23,7 +23,7 @@ class CartRegenerate
      *
      * @return void
      */
-    public function handle(CartItemUpdated $event)
+    public function handle(CartItemUpdated $event): void
     {
         // todo: Написать обработчик обновление самой корзины
     }
