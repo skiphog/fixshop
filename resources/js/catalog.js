@@ -1,10 +1,10 @@
-//import NProgress from 'nprogress';
+import NProgress from 'nprogress';
 
 if (window.history && window.history.pushState) {
   const _c = $('#catalog');
 
   function getCatalog (link) {
-    //NProgress.start();
+    NProgress.start();
     $.getJSON(link)
       .done(function (json) {
         if ('title' in json && 'content' in json) {
@@ -15,7 +15,7 @@ if (window.history && window.history.pushState) {
       })
       .fail(() => alert('Forbidden!'))
       .always(() => {
-        //NProgress.done();
+        NProgress.done();
       });
   }
 
