@@ -30,11 +30,19 @@
                         </label>
                     </div>
                     <div class="col-lg-2 col-xl-1">
-                        <button type="button" class="btn {{ $has ? 'btn-success': 'btn-primary' }}" data-product="{{ $product->id }}" disabled>
-                            <svg class="bi" width="16" height="16">
-                                <use xlink:href="#icon-basket"></use>
-                            </svg>
-                        </button>
+                        @if($has)
+                            <button type="button" class="btn btn-success" data-product="{{ $product->id }}">
+                                <svg class="bi" width="16" height="16">
+                                    <use xlink:href="#icon-basket"></use>
+                                </svg>
+                            </button>
+                        @else
+                            <button type="button" class="btn btn-primary" data-product="{{ $product->id }}" disabled>
+                                <svg class="bi" width="16" height="16">
+                                    <use xlink:href="#icon-basket"></use>
+                                </svg>
+                            </button>
+                        @endif
                     </div>
                 </div>
             </div>

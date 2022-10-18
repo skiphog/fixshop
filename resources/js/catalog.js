@@ -1,3 +1,5 @@
+// noinspection DuplicatedCode
+
 import NProgress from 'nprogress';
 
 if (window.history && window.history.pushState) {
@@ -36,7 +38,7 @@ if (window.history && window.history.pushState) {
     getCatalog(window.location.href);
   });
 
-  _c.on('keyup', 'input[data-input]', function (e) {
+  _c.on('keyup change', 'input[data-input]', function (e) {
     const i = $(this);
     const b = i.closest('.product').find('button[data-product]');
     const v = parseInt(i.val());
@@ -46,7 +48,11 @@ if (window.history && window.history.pushState) {
     });
 
     if (e.keyCode === 13) {
-      b.trigger('click');
+      b.trigger('click')
+        .closest('.product-wrapper')
+        .next()
+        .find('input[data-input]')
+        .focus();
     }
   });
 
@@ -71,10 +77,7 @@ if (window.history && window.history.pushState) {
         _b.attr('disabled', 'disabled').addClass('busy');
       },
       success: function (json) {
-        _b.closest('.product-wrapper')
-          .next()
-          .find('input[data-input]')
-          .focus();
+
       },
       error: function () {
 

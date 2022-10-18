@@ -2,19 +2,24 @@
 
 namespace App\Listeners;
 
-use App\Models\CartItem;
+use App\Services\EloquentCart;
 use App\Events\CartItemUpdated;
 
 class CartRegenerate
 {
     /**
+     * @var EloquentCart
+     */
+    public EloquentCart $eloquentCart;
+
+    /**
      * Create the event listener.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(EloquentCart $eloquentCart)
     {
-        //
+        $this->eloquentCart = $eloquentCart;
     }
 
     /**
@@ -26,10 +31,6 @@ class CartRegenerate
      */
     public function handle(CartItemUpdated $event): void
     {
-        $data = CartItem::where('cart_id', $event->cartItem->cart_id)
-            ->selectRaw('count(*) quantity, sum(weight) weight, sum(amount) amount')
-            ->first()?->toArray() ?? [];
-
-        $event->cartItem->cart()->update($data);
+        $this->eloquentCart->regenerate($event->cartItem);
     }
 }

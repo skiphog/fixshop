@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Models\CartItem;
 use Illuminate\Http\Request;
+use App\Services\EloquentCart;
 
 class CatalogController extends Controller
 {
@@ -17,29 +17,16 @@ class CatalogController extends Controller
         return view('catalog.index', compact('categories'));
     }
 
-    public function show(Category $category, Request $request)
+    public function show(Category $category, Request $request, EloquentCart $cart)
     {
         $category->load([
             'children' => static fn($q) => $q->sorted(),
             'products' => static fn($q) => $q->with('category')->sorted()
         ]);
 
-        $items = [];
-
-        if ($category->has('products')) {
-            $items = CartItem::select([
-                'cart_items.id',
-                'cart_items.product_id',
-                'cart_items.quantity',
-                'cart_items.weight',
-                'cart_items.amount',
-            ])
-                ->where('carts.cookie_id', $request->cookie('cart'))
-                ->join('carts', 'carts.id', '=', 'cart_items.cart_id')
-                ->latest('cart_items.id')
-                ->get()
-                ->keyBy('product_id');
-        }
+        $items = $category->products->isNotEmpty()
+            ? $cart->getItemsByToken((string)$request->cookie('cart'))
+            : collect([]);
 
         if ($request->ajax()) {
             return response()->json([
