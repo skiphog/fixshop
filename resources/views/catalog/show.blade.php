@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @var \App\Models\Category $category
+ * @var \App\Models\Category   $category
+ * @var \App\Models\CartItem[] $items
  */
 
 ?>

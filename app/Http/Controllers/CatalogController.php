@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\CartItem;
 use Illuminate\Http\Request;
 
 class CatalogController extends Controller
@@ -23,13 +24,30 @@ class CatalogController extends Controller
             'products' => static fn($q) => $q->with('category')->sorted()
         ]);
 
+        $items = [];
+
+        if ($category->has('products')) {
+            $items = CartItem::select([
+                'cart_items.id',
+                'cart_items.product_id',
+                'cart_items.quantity',
+                'cart_items.weight',
+                'cart_items.amount',
+            ])
+                ->where('carts.cookie_id', $request->cookie('cart'))
+                ->join('carts', 'carts.id', '=', 'cart_items.cart_id')
+                ->latest('cart_items.id')
+                ->get()
+                ->keyBy('product_id');
+        }
+
         if ($request->ajax()) {
             return response()->json([
                 'title'   => $category->title,
-                'content' => view('catalog.catalog', compact('category'))->render()
+                'content' => view('catalog.catalog', compact('category', 'items'))->render()
             ]);
         }
 
-        return view('catalog.show', compact('category'));
+        return view('catalog.show', compact('category', 'items'));
     }
 }

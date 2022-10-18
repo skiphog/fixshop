@@ -12,7 +12,7 @@ class SetCookieCart
 {
     public function handle(Request $request, Closure $next)
     {
-        if (!$request->cookie('cart')) {
+        if (!($cart = $request->cookie('cart')) || !Str::isUuid($cart)) {
             $request->cookies->set('cart', (string)Str::uuid());
 
             return tap($next($request), function ($response) use ($request) {

@@ -1,14 +1,16 @@
 <?php
 
 /**
- * @var \App\Models\Product[]|\Illuminate\Database\Eloquent\Collection $products
+ * @var \App\Models\Product[]|\Illuminate\Database\Eloquent\Collection  $products
+ * @var \App\Models\CartItem[]|\Illuminate\Database\Eloquent\Collection $items
  */
 
 ?>
+
 @if($products->isNotEmpty())
     <div class="container-lg bg-light rounded-3 border shadow-sm">
         @foreach($products as $product)
-            <div class="p-4 p-lg-1 bg-white my-2 rounded-3 border shadow-sm">
+            <div class="product-wrapper p-4 p-lg-1 bg-white my-2 rounded-3 border shadow-sm">
                 <div class="product row gy-3 gy-lg-0 align-items-center">
                     <div class="col-lg-2 col-xxl-1">
                         <img src="{{ $product->img }}" width="70" loading="lazy" alt="{{ $product->title }}">
@@ -23,11 +25,12 @@
                     </div>
                     <div class="col-lg-2">
                         <label>
-                            <input class="form-control" type="number" placeholder="0">
+                            <input class="form-control" type="number" min="0"
+                                    value="{{ ($has = $items->has($product->id)) ? $items[$product->id]->quantity : '' }}" data-input>
                         </label>
                     </div>
                     <div class="col-lg-2 col-xl-1">
-                        <button type="button" class="btn btn-primary">
+                        <button type="button" class="btn {{ $has ? 'btn-success': 'btn-primary' }}" data-product="{{ $product->id }}" disabled>
                             <svg class="bi" width="16" height="16">
                                 <use xlink:href="#icon-basket"></use>
                             </svg>

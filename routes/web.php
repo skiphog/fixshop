@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\RubricController;
 use App\Http\Controllers\CatalogController;
@@ -14,6 +15,12 @@ Route::group(['prefix' => 'catalog', 'as' => 'catalog.', 'middleware' => []], st
         ->where('category', '.*')
         ->name('show');
 });
+
+Route::group(['prefix' => 'cart', 'as' => 'cart.', 'middleware' => []], static function () {
+    Route::get('/', [CartController::class, 'show'])->name('show');
+    Route::post('/', [CartController::class, 'update'])->name('update');
+});
+
 
 Route::group(['prefix' => '/blog', 'as' => 'blog.'], static function () {
     Route::get('/', [RubricController::class, 'index'])->name('index');

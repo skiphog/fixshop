@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->unsignedInteger('quantity')->default(0)->comment('Количество');
             $table->decimal('weight', 15, 3, true)->default(0)->comment('Вес');
             $table->decimal('amount', 15, 2, true)->default(0)->comment('Сумма');
-            $table->timestamp('created_at')->useCurrentOnUpdate()->comment('Создание');
+            $table->timestamp('created_at')->useCurrent()->useCurrentOnUpdate()->comment('Создание');
 
             // Indexes
             $table->unique('cookie_id');

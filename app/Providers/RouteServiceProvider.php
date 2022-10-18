@@ -33,7 +33,10 @@ class RouteServiceProvider extends ServiceProvider
                 ->prefix('api')
                 ->group(base_path('routes/api.php'));
 
-            Route::middleware('web')
+            Route::middleware([
+                'web',
+                //'cache.headers:max_age=0;etag'
+            ])
                 ->group(base_path('routes/web.php'));
 
             Route::middleware(['web', /*'auth'*/])

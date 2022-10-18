@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Models\CartItem;
 use App\Events\CartItemUpdated;
 
 class CartRegenerate
@@ -25,6 +26,10 @@ class CartRegenerate
      */
     public function handle(CartItemUpdated $event): void
     {
-        // todo: Написать обработчик обновление самой корзины
+        $data = CartItem::where('cart_id', $event->cartItem->cart_id)
+            ->selectRaw('count(*) quantity, sum(weight) weight, sum(amount) amount')
+            ->first()?->toArray() ?? [];
+
+        $event->cartItem->cart()->update($data);
     }
 }

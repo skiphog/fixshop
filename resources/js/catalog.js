@@ -35,4 +35,54 @@ if (window.history && window.history.pushState) {
     }
     getCatalog(window.location.href);
   });
+
+  _c.on('keyup', 'input[data-input]', function (e) {
+    const i = $(this);
+    const b = i.closest('.product').find('button[data-product]');
+    const v = parseInt(i.val());
+
+    b.attr('disabled', function () {
+      return !i.val().length || i.val() === '' || isNaN(v) || v < 0;
+    });
+
+    if (e.keyCode === 13) {
+      b.trigger('click');
+    }
+  });
+
+  _c.on('click', 'button[data-product]', function () {
+    const _b = $(this);
+    const product_id = +_b.data('product') || 0;
+    if (isNaN(product_id) || !product_id) {
+      return;
+    }
+
+    let quantity = +_b.closest('.product').find('input[data-input]').val() || 0;
+    if (quantity < 0) {
+      return;
+    }
+
+    $.ajax({
+      url: '/cart',
+      type: 'post',
+      dataType: 'json',
+      data: { product_id: product_id, quantity: quantity },
+      beforeSend: function () {
+        _b.attr('disabled', 'disabled').addClass('busy');
+      },
+      success: function (json) {
+        _b.closest('.product-wrapper')
+          .next()
+          .find('input[data-input]')
+          .focus();
+      },
+      error: function () {
+
+      },
+      complete: function () {
+        _b.removeAttr('disabled').removeClass('busy');
+      }
+    });
+
+  });
 }

@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @var \App\Models\Category $category
+ * @var \App\Models\Category   $category
+ * @var \App\Models\CartItem[] $items
  */
 
 ?>
@@ -38,5 +39,5 @@
         </div>
     </div>
     @include('catalog.categories', ['categories' => $category->children])
-    @include('catalog.products', ['products' => $category->products])
+    @include('catalog.products', ['products' => $category->products, 'items' => $items])
 </div>
