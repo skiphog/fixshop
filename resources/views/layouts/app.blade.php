@@ -13,24 +13,20 @@
     @include('layouts.app.icons')
     @stack('icons')
 </svg>
-<body class="d-flex flex-column h-100 p-0">
+<body class="d-flex flex-column h-100">
 @include('layouts.app.header')
-<main class="flex-shrink-0">
+<main class="flex-shrink-0 mb-5">
     <div class="container-lg">
-        <div class="row bg-white">
-            <div class="col-md-10 offset-md-1">
-                @yield('content')
-            </div>
-        </div>
+        @yield('content')
     </div>
 </main>
-<footer class="footer bg-white py-3 mt-auto border-top">
+<footer class="footer bg-light bg-simple-footer py-3 mt-auto">
     <div class="container">
-        <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
             <p class="col-md-4 mb-0 text-muted">&copy; {{ date('Y') }} &mdash; {{ config('app.name') }}</p>
 
             <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                <img class="d-inline-block" src="/images/logo.png" width="116" height="24" alt="{{ config('app.name') }}">
+                <img class="d-inline-block" src="/images/bootstrap-logo.svg" width="30" height="24" alt="Logo">
             </a>
 
             <ul class="nav col-md-4 justify-content-end">
