@@ -29,19 +29,56 @@
                 <li class="nav-item"><a class="nav-link" href="#">Контакты</a></li>
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-md-0">
-                <li class="nav-item">
-                    <button type="button" class="btn btn-link position-relative">
+                <li class="nav-item"><a class="nav-link" href="{{ route('admin.index') }}">Админка</a></li>
+                <li class="nav-item dropdown">
+                    <button type="button" class="btn btn-link position-relative" data-bs-toggle="dropdown">
                         <svg class="bi" width="20" height="20">
                             <use xlink:href="#icon-basket"></use>
                         </svg>
                         @if($cart->quantity)
-                            <span class="badge bg-success position-absolute rounded-pill top-50 translate-middle-x">
-                                {{ $cart->quantity }}
+                            <span class="badge bg-danger position-absolute rounded-pill top-50 translate-middle-x">
+                                {{ $cart->quantity_format }}
                             </span>
                         @endif
                     </button>
+                    <div class="dropdown-menu dropdown-menu-end fix-menu-card">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <div class="d-flex align-items-center me-4">
+                                <svg class="bi" width="20" height="20">
+                                    <use xlink:href="#icon-card-list"></use>
+                                </svg>
+                                <span class="ms-1">Позиций</span>
+                            </div>
+                            <div class="text-nowrap">
+                                <span class="fw-bold">{{ $cart->quantity_format }}</span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <div class="d-flex align-items-center me-4">
+                                <svg class="bi" width="20" height="20">
+                                    <use xlink:href="#icon-boxes"></use>
+                                </svg>
+                                <span class="ms-1">Вес</span>
+                            </div>
+                            <div class="text-nowrap">
+                                <span class="fw-bold">{{ $cart->weight_format }}</span>
+                                <span>кг</span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <div class="d-flex align-items-center me-4">
+                                <svg class="bi" width="20" height="20">
+                                    <use xlink:href="#icon-cash"></use>
+                                </svg>
+                                <span class="ms-1">Сумма</span>
+                            </div>
+                            <div class="text-nowrap">
+                                <span class="fw-bold">{{ $cart->amount_format }}</span>
+                                <span>р.</span>
+                            </div>
+                        </div>
+                    </div>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('admin.index') }}">Админка</a></li>
             </ul>
         </div>
     </nav>

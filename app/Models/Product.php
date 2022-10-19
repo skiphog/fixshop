@@ -67,7 +67,7 @@ class Product extends Model
     protected function priceFormat(): Attribute
     {
         return Attribute::make(
-            get: static fn($value, $attributes) => number_format((float)$attributes['price'], 2, ',', ' '),
+            get: static fn($value, $attributes) => formatting($attributes['price'], 2),
         );
     }
 }

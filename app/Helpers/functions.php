@@ -1,5 +1,18 @@
 <?php
 
+if (!function_exists('formatting')) {
+    /**
+     * @param mixed $number
+     * @param int   $decimals
+     *
+     * @return string
+     */
+    function formatting(mixed $number, int $decimals = 0): string
+    {
+        return number_format((float)$number, $decimals, ',', ' ');
+    }
+}
+
 if (!function_exists('time_to_read')) {
     /**
      * Время на прочтение текста
