@@ -8,7 +8,7 @@
 <header class="navbar navbar-expand-md fixed-top bg-simple">
     <nav class="container-lg">
         <a class="navbar-brand" href="{{ route('index') }}">
-            <img class="d-inline-block" src="/images/logo.png" width="116" height="24" alt="{{ config('app.name') }}">
+            <img class="d-inline-block" src="/images/logo.png" width="115" height="24" alt="{{ config('app.name') }}">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,13 +34,13 @@
                         <svg class="bi" width="20" height="20">
                             <use xlink:href="#icon-basket"></use>
                         </svg>
-                        @if($cart->quantity)
-                            <span class="badge bg-danger position-absolute rounded-pill top-50 translate-middle-x">
-                                {{ $cart->quantity_format }}
-                            </span>
-                        @endif
+                        <span id="cart-total"
+                                class="badge bg-danger position-absolute top-50 translate-middle-x {{ !$cart->quantity ? 'hidden': '' }}">
+                            {{ $cart->quantity_format }}
+                        </span>
                     </button>
-                    <div class="dropdown-menu dropdown-menu-end fix-menu-card">
+                    <div id="cart" class="dropdown-menu dropdown-menu-end fix-menu-card">
+                        <div class="fw-bold text-center text-muted mb-2">Корзина</div>
                         <div class="d-flex justify-content-between align-items-center mb-1">
                             <div class="d-flex align-items-center me-4">
                                 <svg class="bi" width="20" height="20">
@@ -49,7 +49,7 @@
                                 <span class="ms-1">Позиций</span>
                             </div>
                             <div class="text-nowrap">
-                                <span class="fw-bold">{{ $cart->quantity_format }}</span>
+                                <span class="fw-bold quantity">{{ $cart->quantity_format }}</span>
                             </div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center mb-1">
@@ -60,7 +60,7 @@
                                 <span class="ms-1">Вес</span>
                             </div>
                             <div class="text-nowrap">
-                                <span class="fw-bold">{{ $cart->weight_format }}</span>
+                                <span class="fw-bold weight">{{ $cart->weight_format }}</span>
                                 <span>кг</span>
                             </div>
                         </div>
@@ -72,10 +72,11 @@
                                 <span class="ms-1">Сумма</span>
                             </div>
                             <div class="text-nowrap">
-                                <span class="fw-bold">{{ $cart->amount_format }}</span>
+                                <span class="fw-bold amount">{{ $cart->amount_format }}</span>
                                 <span>р.</span>
                             </div>
                         </div>
+                        <div class="text-center mt-3"><a href="#">Перейти к заказу</a></div>
                     </div>
                 </li>
             </ul>

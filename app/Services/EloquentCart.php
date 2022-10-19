@@ -18,7 +18,7 @@ class EloquentCart
     public function regenerate(CartItem $cartItem): void
     {
         $data = CartItem::where('cart_id', $cartItem->cart_id)
-            ->selectRaw('count(*) quantity, sum(weight) weight, sum(amount) amount')
+            ->selectRaw('count(*) quantity, coalesce(sum(weight), 0) weight, coalesce(sum(amount), 0) amount')
             ->first()?->toArray() ?? [];
 
         $cartItem->cart()->update($data);
@@ -67,7 +67,7 @@ class EloquentCart
         ])
             ->where('carts.cookie_id', $token)
             ->join('carts', 'carts.id', '=', 'cart_items.cart_id')
-            ->latest('cart_items.id')
+            ->oldest('cart_items.id')
             ->get()
             ->keyBy('product_id');
     }
@@ -80,10 +80,11 @@ class EloquentCart
      */
     protected function deleteItem(Cart $cart, Product $product): array
     {
-        $cart->items()->where('product_id', $product->id)->first()?->delete();
+        $fresh = tap($cart, static function (Cart $cart) use ($product) {
+            $cart->items()->where('product_id', $product->id)->first()?->delete();
+        })->fresh();
 
-        // Total cart
-        return [];
+        return $this->response('delete', $fresh ?? new Cart());
     }
 
     /**
@@ -95,15 +96,12 @@ class EloquentCart
      */
     protected function changeItem(Cart $cart, Product $product, int $quantity): array
     {
-        $cart
-            ->items()
-            ->updateOrCreate(
-                ['product_id' => $product->id],
-                $this->generateParams($product, $quantity)
-            );
+        $params = $this->generateParams($product, $quantity);
+        $fresh = tap($cart, static function (Cart $cart) use ($product, $params) {
+            $cart->items()->updateOrCreate(['product_id' => $product->id], $params);
+        })->fresh();
 
-        //Total cart
-        return [];
+        return $this->response('update', $fresh ?? new Cart(), $params);
     }
 
     /**
@@ -127,5 +125,25 @@ class EloquentCart
         }
 
         return $params;
+    }
+
+    /**
+     * @param string $status
+     * @param Cart   $cart
+     * @param array  $params
+     *
+     * @return array
+     */
+    protected function response(string $status, Cart $cart, array $params = []): array
+    {
+        return [
+            'status'  => $status,
+            'cart'    => [
+                'quantity' => $cart->quantity_format,
+                'weight'   => $cart->weight_format,
+                'amount'   => $cart->amount_format,
+            ],
+            'product' => $params
+        ];
     }
 }

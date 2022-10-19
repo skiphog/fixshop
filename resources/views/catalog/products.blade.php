@@ -25,8 +25,13 @@
                     </div>
                     <div class="col-lg-2">
                         <label>
-                            <input class="form-control" type="number" min="0"
-                                    value="{{ ($has = $items->has($product->id)) ? $items[$product->id]->quantity : '' }}" data-input>
+                            @if($has = $items->has($product->id))
+                                <input class="form-control" type="number" min="0"
+                                        value="{{ $items[$product->id]->quantity }}"
+                                        data-input="{{ $items[$product->id]->quantity }}">
+                            @else
+                                <input class="form-control" type="number" min="0" data-input="0">
+                            @endif
                         </label>
                     </div>
                     <div class="col-lg-2 col-xl-1">
