@@ -8,8 +8,8 @@
 <header class="navbar navbar-expand-md fixed-top bg-simple">
     <nav class="container-lg">
         <a class="navbar-brand" href="{{ route('index') }}">
-            <img class="d-inline-block" src="/images/bootstrap-logo.svg" width="30" height="24" alt="{{ config('app.name') }}">
-            <span>{{ config('app.name') }}</span>
+            <img class="d-inline-block" src="/images/logo.png" width="116" height="24" alt="{{ config('app.name') }}">
+{{--            <span>{{ config('app.name') }}</span>--}}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
