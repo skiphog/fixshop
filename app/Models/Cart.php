@@ -53,7 +53,7 @@ class Cart extends Model
     protected function quantityFormat(): Attribute
     {
         return Attribute::make(
-            get: static fn($value, $attributes) => formatting($attributes['quantity']),
+            get: static fn($value, $attributes) => formatting($attributes['quantity'] ?? 0),
         );
     }
 
@@ -64,7 +64,7 @@ class Cart extends Model
     protected function weightFormat(): Attribute
     {
         return Attribute::make(
-            get: static fn($value, $attributes) => formatting($attributes['weight'], 2),
+            get: static fn($value, $attributes) => formatting($attributes['weight'] ?? 0, 2),
         );
     }
 
@@ -75,7 +75,7 @@ class Cart extends Model
     protected function amountFormat(): Attribute
     {
         return Attribute::make(
-            get: static fn($value, $attributes) => formatting($attributes['amount'], 2),
+            get: static fn($value, $attributes) => formatting($attributes['amount'] ?? 0, 2),
         );
     }
 }

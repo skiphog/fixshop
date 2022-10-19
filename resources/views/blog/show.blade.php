@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-md-12">
                 <img class="w-100 img-fluid object-cover" src="https://avto-bolt.ru/wp-content/uploads/2013/06/1442227961_14.jpg" style="height: 400px;" alt="">
-                <div class="p-md-5 p-3">
+                <div class="p-md-5 p-3 bg-light">
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <a href="#" class="d-flex align-items-center fw-bold text-dark text-decoration-none me-3">
                             <img class="rounded-circle me-3 object-cover" src="{{ $article->img }}" width="48" height="48" alt="">{{ $article->user->name }}
