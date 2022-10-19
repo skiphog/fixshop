@@ -41,7 +41,7 @@ class RubricController extends Controller
         $articles = $rubric
             ->articles()
             ->with('user:id,name')
-            ->paginate(5);
+            ->paginate(6);
 
         return view('blog.rubric', compact('rubric', 'articles'));
     }

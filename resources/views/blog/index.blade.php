@@ -15,6 +15,12 @@
 @endpush
 
 @section('content')
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Главная</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('blog.index') }}">Блог</a></li>
+        </ol>
+    </nav>
     @foreach ($articles as $article)
         <article class="card border-0 shadow-sm overflow-hidden mb-4">
             <div class="row position-relative g-0">
