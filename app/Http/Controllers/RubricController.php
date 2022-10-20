@@ -15,6 +15,7 @@ class RubricController extends Controller
          * Получить все рубрики и отсортировать их по полю sort
          */
         $rubrics = Rubric::orderBy('sort')
+            ->withCount('articles')
             ->get();
 
         /**
