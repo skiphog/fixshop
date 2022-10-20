@@ -12,10 +12,10 @@
 @section('description', "{$rubric->title} &mdash; самые крутые статьи")
 
 @section('content')
-    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Главная</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('blog.index') }}">Блог</a></li>
+            <li class="breadcrumb-item"><a class="text-decoration-none" href="/">Главная</a></li>
+            <li class="breadcrumb-item"><a class="text-decoration-none" href="{{ route('blog.index') }}">Блог</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ $rubric->title }}</li>
         </ol>
     </nav>

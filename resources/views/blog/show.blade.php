@@ -12,11 +12,11 @@
 @section('description', $article->intro)
 
 @section('content')
-    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Главная</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('blog.index') }}">Блог</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('blog.show', $article->rubric) }}">{{ $article->rubric->title }}</a></li>
+            <li class="breadcrumb-item"><a class="text-decoration-none" href="/">Главная</a></li>
+            <li class="breadcrumb-item"><a class="text-decoration-none" href="{{ route('blog.index') }}">Блог</a></li>
+            <li class="breadcrumb-item"><a class="text-decoration-none" href="{{ route('blog.show', $rubric) }}">{{ $rubric->title }}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ $article->title }}</li>
         </ol>
     </nav>
@@ -41,7 +41,7 @@
                         <p>{{ $article->content }}</p>
                     </div>
                     <div class="d-flex justify-content-between">
-                        <a href="{{ route('blog.show', $article->rubric) }}" class="text-decoration-none">Рубрика: <span class="badge bg-primary">{{ Str::limit($article->rubric->title, 5) }}</span></a>
+                        <a href="{{ route('blog.show', $rubric) }}" class="text-decoration-none">Рубрика: <span class="badge bg-primary">{{ Str::limit($rubric->title, 5) }}</span></a>
                         <span class="fs-sm text-muted">Опубликовано: {{ $article->created_at->format('d.m.Y') }}</span>
                     </div>
                 </div>
