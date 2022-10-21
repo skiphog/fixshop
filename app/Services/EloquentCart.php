@@ -73,6 +73,18 @@ class EloquentCart
     }
 
     /**
+     * @param string $token
+     *
+     * @return Cart
+     */
+    public function getCartWithItemsByToken(string $token): Cart
+    {
+        return Cart::where('cookie_id', $token)
+            ->with('items.product')
+            ->firstOrNew();
+    }
+
+    /**
      * @param Cart    $cart
      * @param Product $product
      *

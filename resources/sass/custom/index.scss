@@ -1,0 +1,51 @@
+#assortment .card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#assortment .card::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-150%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.5;
+  transition: 0.5s
+}
+
+#assortment .card:hover::after {
+  transform: translate(-50%, -50%)
+}
+
+#assortment .card:hover img {
+  transform: scale(1.5) rotate(20deg)
+}
+
+#assortment .card img {
+  transition: 0.5s
+}
+
+#assortment .card div {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-2000px, -50%);
+  color: #fff;
+  transition: 0.5s;
+  transition-timing-function: ease-in
+}
+
+#assortment .card:hover div {
+  transform: translate(-50%, -50%);
+  transition-timing-function: ease-in-out;
+}
+
+#advantage .card {
+  min-height: 180px;
+}

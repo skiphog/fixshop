@@ -1,3 +1,10 @@
+<?php
+
+/**
+ * @var \App\Models\Category[] $categories
+ */
+
+?>
 @extends('layouts.app')
 
 @section('title', 'Главная страница')
@@ -5,6 +12,10 @@
 
 @push('icons')
     @include('icons')
+@endpush
+
+@push('styles')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
 @endpush
 
 @section('content')
@@ -57,56 +68,13 @@
         <div class="bg-white rounded-2 mb-4 p-2">
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="d-flex justify-content-center bg-light">
-                            <img class="img-fluid" src="/images/perch/3.png" width="" height="" alt="">
+                    @foreach($categories as $category)
+                        <div class="swiper-slide">
+                            <div class="d-flex justify-content-center bg-light">
+                                <img class="img-fluid" src="{{ asset($category->img) }}" width="150" height="50" alt="{{ $category->title }}">
+                            </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="d-flex justify-content-center bg-light">
-                            <img class="img-fluid" src="/images/perch/3.png" width="" height="" alt="">
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="d-flex justify-content-center bg-light">
-                            <img class="img-fluid" src="/images/perch/3.png" width="" height="" alt="">
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="d-flex justify-content-center bg-light">
-                            <img class="img-fluid" src="/images/perch/3.png" width="" height="" alt="">
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="d-flex justify-content-center bg-light">
-                            <img class="img-fluid" src="/images/perch/3.png" width="" height="" alt="">
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="d-flex justify-content-center bg-light">
-                            <img class="img-fluid" src="/images/perch/3.png" width="" height="" alt="">
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="d-flex justify-content-center bg-light">
-                            <img class="img-fluid" src="/images/perch/3.png" width="" height="" alt="">
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="d-flex justify-content-center bg-light">
-                            <img class="img-fluid" src="/images/perch/3.png" width="" height="" alt="">
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="d-flex justify-content-center bg-light">
-                            <img class="img-fluid" src="/images/perch/3.png" width="" height="" alt="">
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="d-flex justify-content-center bg-light">
-                            <img class="img-fluid" src="/images/perch/3.png" width="" height="" alt="">
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -126,16 +94,16 @@
             </div>
             <div class="row">
                 <div class="col-3 text-center">
-                    <img class="img-fluid" src="/images/partners/tech-krep.jpg" width="" height="" alt="">
+                    <img class="img-fluid" src="/images/partners/tech-krep.jpg" width="180" height="65" alt="Технокрепёж">
                 </div>
                 <div class="col-3 text-center">
-                    <img class="img-fluid" src="/images/partners/tech-krep.jpg" width="" height="" alt="">
+                    <img class="img-fluid" src="/images/partners/zitar.jpg" width="180" height="65" alt="Зитар">
                 </div>
                 <div class="col-3 text-center">
-                    <img class="img-fluid" src="/images/partners/tech-krep.jpg" width="" height="" alt="">
+                    <img class="img-fluid" src="/images/partners/stinger.jpg" width="180" height="65" alt="Стингер">
                 </div>
                 <div class="col-3 text-center">
-                    <img class="img-fluid" src="/images/partners/tech-krep.jpg" width="" height="" alt="">
+                    <img class="img-fluid" src="/images/partners/mtk.jpg" width="180" height="65" alt="МТК">
                 </div>
             </div>
         </div>
@@ -149,7 +117,9 @@
                     </svg>
                     Вы найдете у нас именно то, что Вам нужно!
                 </h4>
-                <p>Наш ассортимент удовлетворяет практически любые запросы. <b>10 000</b> наименований позиций в прайсе соответствует наличию складским запасам на <b>98%</b>.</p>
+                <p>Наш ассортимент удовлетворяет практически любые запросы.
+                    <b>10 000</b> наименований позиций в прайсе соответствует наличию складским запасам на <b>98%</b>.
+                </p>
             </div>
         </div>
         <div class="col-md-6 d-flex">
@@ -171,7 +141,9 @@
                     </svg>
                     Вам больше не нужно искать спец крепеж!
                 </h4>
-                <p>Доверьте это нам! Более <strong>десяти</strong> лет опыта работы с крепежом позволяет эффективно ориентироваться на метизном рынке. Мы найдем для Вас любой крепеж и привезем его в течение недели.</p>
+                <p>Доверьте это нам! Более
+                    <strong>десяти</strong> лет опыта работы с крепежом позволяет эффективно ориентироваться на метизном рынке. Мы найдем для Вас любой крепеж и привезем его в течение недели.
+                </p>
             </div>
         </div>
         <div class="col-md-6 d-flex">
@@ -182,7 +154,8 @@
                     </svg>
                     Вы можете рассчитывать на низкие цены!
                 </h4>
-                <p>Мы следим за тем, что бы наши цены оставались адекватными. Но! Даже если Вы нашли где-то дешевле, <strong>ЗВОНИТЕ!</strong> - договоримся...</p>
+                <p>Мы следим за тем, что бы наши цены оставались адекватными. Но! Даже если Вы нашли где-то дешевле,
+                    <strong>ЗВОНИТЕ!</strong> - договоримся...</p>
             </div>
         </div>
         <div class="col-md-6 d-flex">
@@ -193,7 +166,8 @@
                     </svg>
                     Вы экономите не только деньги, но и время!
                 </h4>
-                <p>Моментальное обслуживание, начиная с выписки и оканчивая получением товара. Офис и склад находятся <strong>в одном месте</strong>.</p>
+                <p>Моментальное обслуживание, начиная с выписки и оканчивая получением товара. Офис и склад находятся
+                    <strong>в одном месте</strong>.</p>
             </div>
         </div>
         <div class="col-md-6 d-flex">
@@ -209,3 +183,19 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper('.mySwiper', {
+        slidesPerView: 6,
+        spaceBetween: 30,
+        autoplay: true,
+        loop: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    </script>
+@endpush

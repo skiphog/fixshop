@@ -76,7 +76,7 @@
                                 <span>р.</span>
                             </div>
                         </div>
-                        <div class="text-center mt-3"><a href="#">Перейти к заказу</a></div>
+                        <div class="text-center mt-3"><a href="{{ route('cart.show') }}">Перейти к заказу</a></div>
                     </div>
                 </li>
             </ul>
