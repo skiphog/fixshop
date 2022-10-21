@@ -28,6 +28,15 @@
   border-top-right-radius: 0;
   border-top-left-radius: 0;
   padding: 1rem;
-  background-color: #f9f9fa;
+  background-color: rgba(248, 249, 250, .9);
 }
 
+.fix-section {
+  //background-color: rgba(248, 249, 250, .5);
+  //background-color: rgba(248, 249, 250, 1);
+  background-color: #fff;
+  @extend .rounded;
+  @extend .shadow-sm;
+  @extend .p-3;
+  border: 1px solid #dee2e6;
+}

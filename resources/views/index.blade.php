@@ -21,17 +21,17 @@
 @section('content')
     <div class="col-md-12">
         <div class="mb-4">
-            <img class="img-fluid w-100 object-cover" src="/images/banner.jpg" width="1130" height="300" alt="promotion">
+            <img class="img-fluid w-100 object-cover shadow-sm rounded" src="/images/banner.jpg" width="1130" height="300" alt="promotion">
         </div>
     </div>
     <div class="col-md-12">
-        <div class="text-center bg-white rounded-2 mb-4 p-2">
+        <div class="text-center fix-section mb-4">
             <h1>Ищете крепеж по оптовым ценам?</h1>
         </div>
     </div>
     <div class="col-md-12">
-        <div class="text-center bg-white rounded-2 mb-4 p-2">
-            <p>Крепежные материалы</p>
+        <div class="text-center fix-section mb-4">
+            <p class="lead">{{ config('app.name') }}</p>
             <p>Вы всегда найдете крепеж у нас в ассортименте</p>
         </div>
     </div>
@@ -65,12 +65,12 @@
         </div>
     </div>
     <div class="col-md-12">
-        <div class="bg-white rounded-2 mb-4 p-2">
+        <div class="fix-section mb-4">
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     @foreach($categories as $category)
                         <div class="swiper-slide">
-                            <div class="d-flex justify-content-center bg-light">
+                            <div class="d-flex justify-content-center">
                                 <img class="img-fluid" src="{{ asset($category->img) }}" width="150" height="50" alt="{{ $category->title }}">
                             </div>
                         </div>
@@ -82,7 +82,7 @@
         </div>
     </div>
     <div class="col-md-12">
-        <div class="bg-white rounded-2 mb-4 p-2">
+        <div class="fix-section mb-4">
             <div class="text-center">
                 <h5>Купить крепеж просто!</h5>
             </div>
@@ -110,7 +110,7 @@
     </div>
     <div id="advantage" class="row">
         <div class="col-md-6 d-flex">
-            <div class="card w-100 mb-4 p-4">
+            <div class="fix-section card w-100 mb-4 p-4">
                 <h4>
                     <svg class="bi" width="1em" height="1em">
                         <use xlink:href="#icon-search"></use>
@@ -123,7 +123,7 @@
             </div>
         </div>
         <div class="col-md-6 d-flex">
-            <div class="card w-100 mb-4 p-4">
+            <div class="fix-section card w-100 mb-4 p-4">
                 <h4>
                     <svg class="bi" width="1em" height="1em">
                         <use xlink:href="#icon-scales"></use>
@@ -134,7 +134,7 @@
             </div>
         </div>
         <div class="col-md-6 d-flex">
-            <div class="card w-100 mb-4 p-4">
+            <div class="fix-section card w-100 mb-4 p-4">
                 <h4>
                     <svg class="bi" width="1em" height="1em">
                         <use xlink:href="#icon-check"></use>
@@ -147,7 +147,7 @@
             </div>
         </div>
         <div class="col-md-6 d-flex">
-            <div class="card w-100 mb-4 p-4">
+            <div class="fix-section card w-100 mb-4 p-4">
                 <h4>
                     <svg class="bi" width="1em" height="1em">
                         <use xlink:href="#icon-ruble"></use>
@@ -159,7 +159,7 @@
             </div>
         </div>
         <div class="col-md-6 d-flex">
-            <div class="card w-100 mb-4 p-4">
+            <div class="fix-section card w-100 mb-4 p-4">
                 <h4>
                     <svg class="bi" width="1em" height="1em">
                         <use xlink:href="#icon-clock"></use>
@@ -171,7 +171,7 @@
             </div>
         </div>
         <div class="col-md-6 d-flex">
-            <div class="card w-100 mb-4 p-4">
+            <div class="fix-section card w-100 mb-4 p-4">
                 <h4>
                     <svg class="bi" width="1em" height="1em">
                         <use xlink:href="#icon-truck"></use>
