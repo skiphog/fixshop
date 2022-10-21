@@ -8,117 +8,204 @@
 @endpush
 
 @section('content')
-    <div class="text-center mb-5">
-        <h1>{{ config('app.name') }}</h1>
-        <h2 class="text-muted">Крепёж по оптовым ценам</h2>
-        <p class="lead">Вы всегда найдете крепеж у нас в ассортименте</p>
+    <div class="col-md-12">
+        <div class="mb-4">
+            <img class="img-fluid w-100 object-cover" src="/images/banner.jpg" width="1130" height="300" alt="promotion">
+        </div>
     </div>
-
-    <div class="mb-5">
-        <div class="row gy-3 text-center">
-            <div class="col-12 col-sm-4">
-                <a class="card text-decoration-none fix-shadow-hover" href="{{ route('catalog.index') }}">
-                    <img class="img-fluid" src="/images/baza/gvozdi.jpg" width="640" height="480" alt="Крепёж">
-                    <div class="card-body">
-                        <h5 class="card-title text-muted">Крепёж</h5>
-                    </div>
-                </a>
+    <div class="col-md-12">
+        <div class="text-center bg-white rounded-2 mb-4 p-2">
+            <h1>Ищете крепеж по оптовым ценам?</h1>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="text-center bg-white rounded-2 mb-4 p-2">
+            <p>Крепежные материалы</p>
+            <p>Вы всегда найдете крепеж у нас в ассортименте</p>
+        </div>
+    </div>
+    <div id="assortment" class="row">
+        <div class="col-4">
+            <div class="card mb-4">
+                <img class="img-fluid w-100" src="/images/baza/gvozdi.jpg" width="640" height="480" alt="Крепёж">
+                <div class="card-body d-flex flex-column align-items-center w-100 text-center">
+                    <h5 class="card-title">Крепёж</h5>
+                    <p class="card-text d-none d-sm-block">Анкеры, саморезы, метрический крепеж</p>
+                </div>
             </div>
-            <div class="col-12 col-sm-4">
-                <a class="card text-decoration-none fix-shadow-hover" href="{{ url('/catalog/furnitura-dlya-okon-i-dverej') }}">
-                    <img class="img-fluid" src="/images/baza/l2.jpg" width="640" height="480" alt="Фурнитура">
-                    <div class="card-body">
-                        <h5 class="card-title text-muted">Фурнитура</h5>
-                    </div>
-                </a>
+        </div>
+        <div class="col-4">
+            <div class="card mb-4">
+                <img class="img-fluid w-100" src="/images/baza/l2.jpg" width="640" height="480" alt="Фурнитура">
+                <div class="card-body d-flex flex-column align-items-center w-100 text-center">
+                    <h5 class="card-title">Фурнитура</h5>
+                    <p class="card-text d-none d-sm-block">Мебельная и дверная</p>
+                </div>
             </div>
-            <div class="col-12 col-sm-4">
-                <a class="card text-decoration-none fix-shadow-hover" href="{{ url('/catalog/instrument') }}">
-                    <img class="img-fluid" src="/images/baza/instrum.jpg" width="640" height="480" alt="Инструмент">
-                    <div class="card-body">
-                        <h5 class="card-title text-muted">Инструмент</h5>
-                    </div>
-                </a>
+        </div>
+        <div class="col-4">
+            <div class="card mb-4">
+                <img class="img-fluid w-100" src="/images/baza/instrum.jpg" width="640" height="480" alt="Инструмент">
+                <div class="card-body d-flex flex-column align-items-center w-100 text-center">
+                    <h5 class="card-title">Инструмент</h5>
+                    <p class="card-text d-none d-sm-block">От отвёртки до бензопилы</p>
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="mb-5">
-        <div class="g-4 row row-cols-1 row-cols-md-2">
-            <div class="col d-flex align-items-start">
-                <div class="icon-square text-bg-success d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+    <div class="col-md-12">
+        <div class="bg-white rounded-2 mb-4 p-2">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="d-flex justify-content-center bg-light">
+                            <img class="img-fluid" src="/images/perch/3.png" width="" height="" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="d-flex justify-content-center bg-light">
+                            <img class="img-fluid" src="/images/perch/3.png" width="" height="" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="d-flex justify-content-center bg-light">
+                            <img class="img-fluid" src="/images/perch/3.png" width="" height="" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="d-flex justify-content-center bg-light">
+                            <img class="img-fluid" src="/images/perch/3.png" width="" height="" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="d-flex justify-content-center bg-light">
+                            <img class="img-fluid" src="/images/perch/3.png" width="" height="" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="d-flex justify-content-center bg-light">
+                            <img class="img-fluid" src="/images/perch/3.png" width="" height="" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="d-flex justify-content-center bg-light">
+                            <img class="img-fluid" src="/images/perch/3.png" width="" height="" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="d-flex justify-content-center bg-light">
+                            <img class="img-fluid" src="/images/perch/3.png" width="" height="" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="d-flex justify-content-center bg-light">
+                            <img class="img-fluid" src="/images/perch/3.png" width="" height="" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="d-flex justify-content-center bg-light">
+                            <img class="img-fluid" src="/images/perch/3.png" width="" height="" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="bg-white rounded-2 mb-4 p-2">
+            <div class="text-center">
+                <h5>Купить крепеж просто!</h5>
+            </div>
+            <div class="text-center">
+                <p>
+                    <span class="text-black">Мы поможем сократить Вам денежные расходы и время!</span>
+                    <br>Предлагаем строительный крепеж и инструмент от производителей и наших партнеров.
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-3 text-center">
+                    <img class="img-fluid" src="/images/partners/tech-krep.jpg" width="" height="" alt="">
+                </div>
+                <div class="col-3 text-center">
+                    <img class="img-fluid" src="/images/partners/tech-krep.jpg" width="" height="" alt="">
+                </div>
+                <div class="col-3 text-center">
+                    <img class="img-fluid" src="/images/partners/tech-krep.jpg" width="" height="" alt="">
+                </div>
+                <div class="col-3 text-center">
+                    <img class="img-fluid" src="/images/partners/tech-krep.jpg" width="" height="" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="advantage" class="row">
+        <div class="col-md-6 d-flex">
+            <div class="card w-100 mb-4 p-4">
+                <h4>
                     <svg class="bi" width="1em" height="1em">
                         <use xlink:href="#icon-search"></use>
                     </svg>
-                </div>
-                <div>
-                    <h4>Вы найдете у нас именно то, что Вам нужно!</h4>
-                    <p>Наш ассортимент удовлетворяет практически любые запросы.
-                        <strong>10 000</strong> наименований позиций в прайсе
-                        соответствует наличию складским запасам на <strong>98%</strong>.</p>
-                </div>
+                    Вы найдете у нас именно то, что Вам нужно!
+                </h4>
+                <p>Наш ассортимент удовлетворяет практически любые запросы. <b>10 000</b> наименований позиций в прайсе соответствует наличию складским запасам на <b>98%</b>.</p>
             </div>
-            <div class="col d-flex align-items-start">
-                <div class="icon-square text-bg-success d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+        </div>
+        <div class="col-md-6 d-flex">
+            <div class="card w-100 mb-4 p-4">
+                <h4>
                     <svg class="bi" width="1em" height="1em">
                         <use xlink:href="#icon-scales"></use>
                     </svg>
-                </div>
-                <div>
-                    <h4>Удобная фасовка для магазинов, организаций!</h4>
-                    <p>От промкоробок и до любой, наиболее выгодной для Вас упаковки.</p>
-                </div>
+                    Удобная фасовка для магазинов, организаций!
+                </h4>
+                <p>От промкоробок и до любой, наиболее выгодной для Вас упаковки.</p>
             </div>
-            <div class="col d-flex align-items-start">
-                <div class="icon-square text-bg-success d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+        </div>
+        <div class="col-md-6 d-flex">
+            <div class="card w-100 mb-4 p-4">
+                <h4>
                     <svg class="bi" width="1em" height="1em">
                         <use xlink:href="#icon-check"></use>
                     </svg>
-                </div>
-                <div>
-                    <h4>Вам больше не нужно искать спец крепеж!</h4>
-                    <p>Доверьте это нам! Более
-                        <strong>десяти</strong> лет опыта работы с крепежом позволяет эффективно ориентироваться
-                        на метизном рынке. Мы найдем для Вас любой крепеж и привезем его в течение недели.</p>
-                </div>
+                    Вам больше не нужно искать спец крепеж!
+                </h4>
+                <p>Доверьте это нам! Более <strong>десяти</strong> лет опыта работы с крепежом позволяет эффективно ориентироваться на метизном рынке. Мы найдем для Вас любой крепеж и привезем его в течение недели.</p>
             </div>
-            <div class="col d-flex align-items-start">
-                <div class="icon-square text-bg-success d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+        </div>
+        <div class="col-md-6 d-flex">
+            <div class="card w-100 mb-4 p-4">
+                <h4>
                     <svg class="bi" width="1em" height="1em">
                         <use xlink:href="#icon-ruble"></use>
                     </svg>
-                </div>
-                <div>
-                    <h4>Вы можете рассчитывать на низкие цены!</h4>
-                    <p>Мы следим за тем, что бы наши цены оставались адекватными. Но! Даже если Вы нашли где-то дешевле,
-                        <strong>ЗВОНИТЕ!</strong> - договоримся...</p>
-                </div>
+                    Вы можете рассчитывать на низкие цены!
+                </h4>
+                <p>Мы следим за тем, что бы наши цены оставались адекватными. Но! Даже если Вы нашли где-то дешевле, <strong>ЗВОНИТЕ!</strong> - договоримся...</p>
             </div>
-            <div class="col d-flex align-items-start">
-                <div class="icon-square text-bg-success d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+        </div>
+        <div class="col-md-6 d-flex">
+            <div class="card w-100 mb-4 p-4">
+                <h4>
                     <svg class="bi" width="1em" height="1em">
                         <use xlink:href="#icon-clock"></use>
                     </svg>
-                </div>
-                <div>
-                    <h4>Вы экономите не только деньги, но и время!</h4>
-                    <p>Моментальное обслуживание, начиная с выписки и оканчивая получением товара. Офис и склад
-                        находятся <strong>в одном месте</strong>.</p>
-                </div>
+                    Вы экономите не только деньги, но и время!
+                </h4>
+                <p>Моментальное обслуживание, начиная с выписки и оканчивая получением товара. Офис и склад находятся <strong>в одном месте</strong>.</p>
             </div>
-            <div class="col d-flex align-items-start">
-                <div class="icon-square text-bg-success d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+        </div>
+        <div class="col-md-6 d-flex">
+            <div class="card w-100 mb-4 p-4">
+                <h4>
                     <svg class="bi" width="1em" height="1em">
                         <use xlink:href="#icon-truck"></use>
                     </svg>
-                </div>
-                <div>
-                    <h4>Вам не нужно беспокоиться о доставке!</h4>
-                    <p>Мы скомплектуем товар и доставим его до вашего склада.
-                        Доставка по России осуществляется транспортными компаниями.</p>
-                </div>
+                    Вам не нужно беспокоиться о доставке!
+                </h4>
+                <p>Мы скомплектуем товар и доставим его до вашего склада. Доставка по России осуществляется транспортными компаниями.</p>
             </div>
         </div>
     </div>
-
 @endsection
