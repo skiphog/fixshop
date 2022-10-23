@@ -13,7 +13,7 @@ body {
 }
 
 [v-cloak], [hidden], .hidden {
-  display: none;
+  display: none !important;
 }
 
 .object-cover {

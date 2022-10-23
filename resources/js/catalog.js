@@ -83,7 +83,7 @@ _c.on('click', 'button[data-product]', function () {
   }
 
   $.ajax({
-    url: '/cart',
+    url: '/cart/update',
     type: 'post',
     dataType: 'json',
     data: { product_id: product_id, quantity: quantity },

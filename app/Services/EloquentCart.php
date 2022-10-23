@@ -85,6 +85,16 @@ class EloquentCart
     }
 
     /**
+     * @param mixed $token
+     *
+     * @return bool
+     */
+    public function destroyCartByToken(mixed $token): bool
+    {
+        return (bool)Cart::where('cookie_id', (string)$token)->delete();
+    }
+
+    /**
      * @param Cart    $cart
      * @param Product $product
      *
@@ -113,7 +123,7 @@ class EloquentCart
             $cart->items()->updateOrCreate(['product_id' => $product->id], $params);
         })->fresh();
 
-        return $this->response('update', $fresh ?? new Cart(), $params);
+        return $this->response('update', $fresh ?? new Cart(), $this->transformParams($params));
     }
 
     /**
@@ -137,6 +147,19 @@ class EloquentCart
         }
 
         return $params;
+    }
+
+    /**
+     * @param array $params
+     *
+     * @return array
+     */
+    protected function transformParams(array $params): array
+    {
+        return [
+            'amount' => formatting($params['amount'], 2),
+            'weight' => formatting($params['weight'], 2),
+        ];
     }
 
     /**

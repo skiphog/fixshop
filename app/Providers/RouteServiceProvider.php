@@ -35,16 +35,24 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware([
                 'web',
-                //'cache.headers:max_age=0;etag'
+                'cache.headers:must_revalidate;no_cache;no_store'
             ])
                 ->group(base_path('routes/web.php'));
 
-            Route::middleware(['web', /*'auth'*/])
+            Route::middleware([
+                'web',
+                'cache.headers:must_revalidate;no_cache;no_store',
+                /*'auth'*/
+            ])
                 ->prefix('cabinet')
                 ->as('cabinet.')
                 ->group(base_path('routes/cabinet.php'));
 
-            Route::middleware(['web', /*'moderator'*/])
+            Route::middleware([
+                'web',
+                'cache.headers:must_revalidate;no_cache;no_store',
+                /*'moderator'*/
+            ])
                 ->prefix('admin')
                 ->as('admin.')
                 ->group(base_path('routes/admin.php'));

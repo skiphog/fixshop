@@ -18,7 +18,8 @@ Route::group(['prefix' => 'catalog', 'as' => 'catalog.', 'middleware' => []], st
 
 Route::group(['prefix' => 'cart', 'as' => 'cart.', 'middleware' => []], static function () {
     Route::get('/', [CartController::class, 'show'])->name('show');
-    Route::post('/', [CartController::class, 'update'])->name('update');
+    Route::post('/update', [CartController::class, 'update'])->name('update');
+    Route::post('/destroy', [CartController::class, 'destroy'])->name('destroy');
 });
 
 
