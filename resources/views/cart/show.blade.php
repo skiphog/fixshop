@@ -11,9 +11,7 @@
 @section('description', 'Оформление заказа')
 
 @push('icons')
-    <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
-        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-    </symbol>
+    @include('cart.icons')
 @endpush
 
 @section('content')
@@ -29,5 +27,61 @@
             <a class="text-nowrap" href="tel:79226666666">+7 (922) 666-66-66</a>
         </div>
     </div>
-    @dump($cart)
+
+    @if($cart->items->isNotEmpty())
+        <div class="bg-light rounded shadow-sm border p-3 table-responsive-md">
+            <table class="fix-section table align-middle m-0">
+                <thead>
+                <tr>
+                    <th scope="col">Наименование</th>
+                    <th scope="col">Кол-во</th>
+                    <th scope="col">Вес</th>
+                    <th scope="col">Цена</th>
+                    <th scope="col">Итого</th>
+                    <th scope="col" class="text-danger text-center">
+                        <svg class="bi align-middle" width="18" height="18">
+                            <use xlink:href="#icon-cancel"/>
+                        </svg>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($cart->items as $item)
+                    <tr>
+                        <td>{{ $item->product->title }}</td>
+                        <td>
+                            <input class="form-control fix-input-cart" type="number" value="{{ $item->quantity }}">
+                        </td>
+                        <td class="text-nowrap">{{ $item->weight_format }} кг</td>
+                        <td class="text-nowrap">{{ $item->product->price_format }} р.</td>
+                        <td class="text-nowrap">{{ $item->amount_format }} р.</td>
+                        <td class="text-center">
+                            <button type="button" class="btn-close" aria-label="Close"></button>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="5" class="text-end">Вес заказа:</td>
+                    <td class="text-nowrap"><span class="fw-bold">{{ $cart->weight_format }}</span> кг</td>
+                </tr>
+                <tr>
+                    <td colspan="5" class="text-end">Сумма заказа:</td>
+                    <td class="text-nowrap"><span class="fw-bold">{{ $cart->amount_format }}</span> р.</td>
+                </tr>
+                <tr>
+                    <td colspan="6" class="text-end">
+                        <button class="btn btn-outline-danger">Удалить заказ</button>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    @else
+        <div class="fix-section text-center">
+            <p class="lead">Нет товаров для оформления заказа</p>
+            <a class="btn btn-primary" href="{{ route('catalog.index') }}">Перейти в каталог</a>
+        </div>
+    @endif
 @endsection
