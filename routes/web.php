@@ -6,6 +6,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\RubricController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\PageController;
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 
@@ -28,3 +29,7 @@ Route::group(['prefix' => '/blog', 'as' => 'blog.'], static function () {
     Route::get('/{rubric:slug}', [RubricController::class, 'show'])->name('show');
     Route::get('/{rubric:slug}/{article:slug}', [ArticleController::class, 'show'])->name('article.show');
 });
+
+Route::get('/prices', [PageController::class, 'prices'])->name('prices');
+Route::get('/certificates', [PageController::class, 'certificates'])->name('certificates');
+Route::get('/contacts', [PageController::class, 'contacts'])->name('contacts');

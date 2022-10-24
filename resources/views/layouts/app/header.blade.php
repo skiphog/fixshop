@@ -21,11 +21,17 @@
                     <a class="nav-link {{ request()->routeIs('catalog.*') ? 'active': '' }}"
                             href="{{ route('catalog.index') }}">Каталог</a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="#">Акции</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Прайсы</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Сертификаты</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">
+                        <svg class="bi" width="1em" height="1em">
+                            <use xlink:href="#icon-stock"></use>
+                        </svg>
+                        Акции
+                    </a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('prices') }}">Прайсы</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('certificates') }}">Сертификаты</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('blog.index') }}">Блог</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Контакты</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('contacts') }}">Контакты</a></li>
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-md-0">
                 <li class="nav-item"><a class="nav-link" href="{{ route('admin.index') }}">Админка</a></li>
