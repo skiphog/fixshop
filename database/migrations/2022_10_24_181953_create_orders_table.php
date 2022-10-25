@@ -15,8 +15,14 @@ return new class extends Migration {
         Schema::create('orders', static function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->nullable();
-            
-
+            $table->unsignedInteger('quantity');
+            $table->decimal('weight', 15, 3, true);
+            $table->decimal('amount', 15, 2, true);
+            $table->string('name');
+            $table->string('email');
+            $table->string('phone');
+            $table->string('organization')->nullable();
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }
