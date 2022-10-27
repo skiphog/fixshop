@@ -24,6 +24,11 @@ return new class extends Migration {
             $table->string('organization')->nullable();
             $table->text('note')->nullable();
             $table->timestamps();
+
+            // Indexes
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users');
         });
     }
 
