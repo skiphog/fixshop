@@ -19,7 +19,7 @@ class ArticleFactory extends Factory
         static $number = 1;
 
         return [
-            'img'          => 'https://loremflickr.com/320/240?random=' . $number,
+            'img'          => 'https://loremflickr.com/640/480?random=' . $number,
             'title'        => $title = $this->faker->realText(40),
             'slug'         => str($title)->slug() . '-' . $number++,
             'intro'        => str($text = $this->faker->realText(1000))->limit(),
