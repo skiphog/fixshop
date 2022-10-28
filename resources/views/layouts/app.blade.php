@@ -7,6 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/lightbox.min.css') }}">
     @stack('styles')
 </head>
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -16,7 +17,7 @@
 <body class="d-flex flex-column h-100">
 @include('layouts.app.header')
 <main class="flex-shrink-0 mb-5">
-    <div class="container-lg">
+    <div class="container-lg px-0">
         @yield('content')
     </div>
 </main>
