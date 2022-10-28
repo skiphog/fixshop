@@ -11,7 +11,7 @@
 </section>
 <section class="catalog container mb-4">
     <div class="row">
-        <aside class="col-lg-4">
+        <aside class="col-lg-3">
             <button class="btn btn-sm btn-primary fixed-bottom d-lg-none w-100 rounded-0"
                     type="button"
                     data-bs-toggle="offcanvas"
@@ -34,7 +34,7 @@
                 </div>
             </div>
         </aside>
-        <div class="col-lg-8">
+        <div class="col-lg-9">
             <div class="d-flex flex-column flex-sm-row align-items-sm-center p-1 p-sm-3 bg-light mb-3 rounded-3 border shadow-sm">
                 <img src="{{ asset($category->img) }}" width="150" height="100" alt="{{ $category->title }}">
                 <div class="p-1 p-sm-3">

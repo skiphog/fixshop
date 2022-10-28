@@ -33,7 +33,7 @@
         </section>
         <section class="catalog container mb-4">
             <div class="row">
-                <aside class="col-lg-4">
+                <aside class="col-lg-3">
                     <button class="btn btn-sm btn-primary fixed-bottom d-lg-none w-100 rounded-0"
                             type="button"
                             data-bs-toggle="offcanvas"
@@ -62,7 +62,7 @@
                         </div>
                     </div>
                 </aside>
-                <div class="col-lg-8">
+                <div class="col-lg-9">
                     @include('catalog.categories', compact('categories'))
                 </div>
             </div>
