@@ -16,12 +16,9 @@
 @endpush
 
 @section('content')
-    <section id="catalog-header" class="catalog-header container mb-4">
-        @include('catalog.breadcrumbs')
-    </section>
-    <section id="catalog" class="catalog container mb-4">
+    <div id="catalog">
         @include('catalog.catalog')
-    </section>
+    </div>
 @endsection
 
 @push('scripts')

@@ -7,6 +7,10 @@
     @include('icons')
 @endpush
 
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/lightbox.min.css') }}">
+@endpush
+
 @section('content')
     <section id="certificates-header" class="certificates-header container mb-4">
         <nav aria-label="breadcrumb">
@@ -65,5 +69,5 @@
     </section>
 @endsection
 @push('scripts')
-    <script src="{{ asset('js/lightbox-plus-jquery.min.js') }}"></script>
+    <script src="{{ asset('js/lightbox.min.js') }}"></script>
 @endpush

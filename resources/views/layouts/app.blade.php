@@ -7,7 +7,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/lightbox.min.css') }}">
     @stack('styles')
 </head>
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
