@@ -14,6 +14,17 @@ return new class extends Migration {
     {
         Schema::create('order_items', static function (Blueprint $table) {
             $table->id();
+            $table->foreignId('order_id');
+            $table->string('title');
+            $table->decimal('quantity', 15, 3);
+            $table->enum('unit', ['шт', 'тыс. шт', 'кг', 'упак', 'набор', 'м', 'пар', 'рул', 'компл']);
+            $table->decimal('price', 15, 2, true);
+            $table->decimal('amount', 15, 2, true);
+
+            // Indexes
+            $table->foreign('order_id')
+                ->references('id')
+                ->on('orders');
         });
     }
 
