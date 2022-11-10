@@ -39,6 +39,7 @@ class Order extends Model
 
     /**
      * @return HasMany
+     * @noinspection PhpUnused
      */
     public function orderItems(): HasMany
     {

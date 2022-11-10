@@ -29,7 +29,7 @@
     </div>
 
     @if($cart->items->isNotEmpty())
-        <div id="basket" class="bg-light rounded shadow-sm border p-3 table-responsive-md">
+        <div id="basket" class="bg-light rounded shadow-sm border p-3 mb-3 table-responsive-md">
             <table class="fix-section table align-middle m-0">
                 <thead>
                 <tr>
@@ -83,6 +83,13 @@
                 </tfoot>
             </table>
         </div>
+
+        <div class="fix-section">
+            <form action="{{ route('orders.store') }}" method="post">
+                @csrf
+            </form>
+        </div>
+
         @push('scripts')
             <script src="{{ asset('js/cart.js') }}"></script>
         @endpush
