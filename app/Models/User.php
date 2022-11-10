@@ -9,7 +9,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * @property-read int|null  $articles_count
+ * @property-read int|null  $orders_count
  * @property-read Article[] $articles
+ * @property-read Order[]   $orders
  */
 class User extends Authenticatable
 {
@@ -45,12 +47,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
     /**
      * @return HasMany
      */
     public function articles(): HasMany
     {
         return $this->hasMany(Article::class, 'user_id', 'id');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class, 'user_id', 'id');
     }
 }
