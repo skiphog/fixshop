@@ -52,7 +52,7 @@ class OrderController extends Controller
                 'title'    => $item->product->title,
                 'unit'     => $item->product->unit,
                 'price'    => $item->product->price,
-                'amount'   => $item->quantity * $item->product->price,
+                'amount'   => $item->product->unit === 'тыс. шт' ? $item->quantity * $item->product->price / 1000 : $item->quantity * $item->product->price,
                 'quantity' => $item->product->unit === 'тыс. шт' ? $item->quantity / 1000 : $item->quantity
             ];
         }
