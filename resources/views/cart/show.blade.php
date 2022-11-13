@@ -84,13 +84,49 @@
             </table>
         </div>
 
-        <div class="fix-section">
-            <form action="{{ route('orders.store') }}" method="post">
+        @include('partials.errors')
+
+        <form class="fix-section" action="{{ route('orders.store') }}" method="post">
+            <fieldset>
+                <legend>Информация о заказчике</legend>
+                <div class="mb-3">
+                    <label for="organization" class="form-label">Организация</label>
+                    <input type="text" id="organization" class="form-control" name="organization"
+                            placeholder="ООО / ИП / Частное лицо">
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Имя</label>
+                    <input type="text" id="name" class="form-control" name="name"
+                            placeholder="Джо Байден">
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Телефон</label>
+                    <input type="text" id="phone" class="form-control" name="phone"
+                            placeholder="+7 (999) 999-99-99">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" id="email" class="form-control" name="email"
+                            placeholder="joe@biden.com">
+                </div>
+                <div class="mb-3">
+                    <label for="note" class="form-label">Примечание</label>
+                    <textarea class="form-control" id="note" name="note" rows="3"></textarea>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="policy" name="policy" checked>
+                    <label class="form-check-label" for="policy">
+                        Я согласен <a href="#">на обработку моих персональных данных</a>
+                    </label>
+                </div>
                 @csrf
-            </form>
-        </div>
+                <button type="submit" class="btn btn-primary">Оформить</button>
+            </fieldset>
+        </form>
 
         @push('scripts')
+            <script src="{{ asset('js/jquery.maskedinput.min.js') }}"></script>
             <script src="{{ asset('js/cart.js') }}"></script>
         @endpush
     @else

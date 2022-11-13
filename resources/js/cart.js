@@ -68,3 +68,5 @@ basket.on('click', '.btn-destroy', function () {
 basket.on('click', '#cart-destroy', function () {
   $(this).prev().toggleClass('hidden');
 });
+
+$('#phone').mask('+7 (999) 999-99-99');
