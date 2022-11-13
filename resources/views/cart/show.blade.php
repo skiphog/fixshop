@@ -28,6 +28,8 @@
         </div>
     </div>
 
+    @include('partials.success')
+
     @if($cart->items->isNotEmpty())
         <div id="basket" class="bg-light rounded shadow-sm border p-3 mb-3 table-responsive-md">
             <table class="fix-section table align-middle m-0">

@@ -6,10 +6,17 @@ use App\Models\Cart;
 use App\Models\Order;
 use App\Services\EloquentCart;
 use App\Http\Requests\OrderRequest;
+use Illuminate\Http\RedirectResponse;
 
 class OrderController extends Controller
 {
-    public function store(OrderRequest $request, EloquentCart $eloquentCart)
+    /**
+     * @param OrderRequest $request
+     * @param EloquentCart $eloquentCart
+     *
+     * @return RedirectResponse
+     */
+    public function store(OrderRequest $request, EloquentCart $eloquentCart): RedirectResponse
     {
         $cart = $eloquentCart->getCartWithItemsByToken($request->cookie('cart'));
 
@@ -28,9 +35,14 @@ class OrderController extends Controller
         // Отправить письма
         $cart->delete();
 
-        return to_route('cart.show');
+        return to_route('cart.show')->with('success', 'Заказ создан');
     }
 
+    /**
+     * @param Cart $cart
+     *
+     * @return array
+     */
     protected function generateOrderItems(Cart $cart): array
     {
         $data = [];
