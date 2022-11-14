@@ -20,4 +20,5 @@ Route::group(['prefix' => 'categories', 'as' => 'categories.', 'middleware' => [
 
 Route::group(['prefix' => 'orders', 'as' => 'orders.', 'middleware' => []], static function () {
     Route::get('/', [OrderController::class, 'index'])->name('index');
+    Route::get('/{order}', [OrderController::class, 'show'])->name('show');
 });

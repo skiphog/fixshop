@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use App\Models\Traits\DataFormat;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -23,13 +24,19 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property Carbon|null      $created_at
  * @property Carbon|null      $updated_at
  *
- * @property-read int|null    $order_item_count
- * @property-read OrderItem[] $order_items
+ * @property-read int|null    $items_count
+ * @property-read OrderItem[] $items
  * @property-read User        $user
  * @property-read string      $status_text
+ * @property-read string      $status_color
+ * @property-read string      $quantity_format
+ * @property-read string      $weight_format
+ * @property-read string      $amount_format
  */
 class Order extends Model
 {
+    use DataFormat;
+
     /**
      * Статус заказов
      */
@@ -69,7 +76,7 @@ class Order extends Model
      * @return HasMany
      * @noinspection PhpUnused
      */
-    public function orderItems(): HasMany
+    public function items(): HasMany
     {
         return $this->hasMany(OrderItem::class, 'order_id', 'id');
     }
@@ -90,6 +97,23 @@ class Order extends Model
     {
         return Attribute::make(get: static function ($value, $attributes) {
             return static::statusList()[$attributes['status']] ?? '';
+        });
+    }
+
+    /**
+     * @return Attribute
+     * @noinspection PhpUnused
+     */
+    protected function statusColor(): Attribute
+    {
+        return Attribute::make(get: static function ($value, $attributes) {
+            return match ($attributes['status']) {
+                static::STATUS['NEW']       => 'text-primary',
+                static::STATUS['PENDING']   => 'text-warning',
+                static::STATUS['COMPLETED'] => 'text-success',
+                static::STATUS['CANCELED']  => 'text-danger',
+                default                     => ''
+            };
         });
     }
 }

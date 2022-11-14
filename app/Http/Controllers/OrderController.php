@@ -29,7 +29,7 @@ class OrderController extends Controller
             'weight'   => $cart->weight,
             'amount'   => $cart->amount
         ]))
-            ->orderItems()
+            ->items()
             ->createMany($this->generateOrderItems($cart));
 
         // Отправить письма
