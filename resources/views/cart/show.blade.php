@@ -94,22 +94,22 @@
                 <div class="mb-3">
                     <label for="organization" class="form-label">Организация</label>
                     <input type="text" id="organization" class="form-control" name="organization"
-                            placeholder="ООО / ИП / Частное лицо">
+                            value="{{ old('organization') }}" placeholder="ООО / ИП / Частное лицо">
                 </div>
                 <div class="mb-3">
                     <label for="name" class="form-label">Имя</label>
                     <input type="text" id="name" class="form-control" name="name"
-                            placeholder="Джо Байден">
+                            value="{{ old('name') }}" placeholder="Джо Байден">
                 </div>
                 <div class="mb-3">
                     <label for="phone" class="form-label">Телефон</label>
                     <input type="text" id="phone" class="form-control" name="phone"
-                            placeholder="+7 (999) 999-99-99">
+                            value="{{ old('phone') }}" placeholder="+7 (999) 999-99-99">
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
                     <input type="text" id="email" class="form-control" name="email"
-                            placeholder="joe@biden.com">
+                            value="{{ old('email') }}" placeholder="joe@biden.com">
                 </div>
                 <div class="mb-3">
                     <label for="note" class="form-label">Примечание</label>

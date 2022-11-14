@@ -27,6 +27,10 @@
                     <a class="nav-link {{ request()->routeIs('admin.categories.*') ? 'active': '' }}"
                             href="{{ route('admin.categories.index') }}">Каталог</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('admin.orders.*') ? 'active': '' }}"
+                            href="{{ route('admin.orders.index') }}">Заказы</a>
+                </li>
                 <li class="nav-item"><a class="nav-link" href="#">Продукты</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Блог</a></li>
             </ul>

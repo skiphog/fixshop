@@ -23,12 +23,14 @@ return new class extends Migration {
             $table->string('phone');
             $table->string('organization')->nullable();
             $table->text('note')->nullable();
+            $table->enum('status', ['new', 'pending', 'completed', 'canceled'])->default('new');
             $table->timestamps();
 
             // Indexes
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users');
+            $table->index('status');
         });
     }
 
