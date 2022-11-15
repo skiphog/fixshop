@@ -12,7 +12,7 @@
 
 @section('content')
     <h1>Заказ #{{ $order->id }}</h1>
-    <div class="fix-section">
+    <div class="fix-section mb-3">
         <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="order-info-tab" data-bs-toggle="tab" data-bs-target="#order-info" type="button"
@@ -50,7 +50,7 @@
                     </tr>
                     <tr>
                         <td class="fw-bold">Примечание:</td>
-                        <td class="w-100">{{ $order->note ?: "\u{2014}" }}</td>
+                        <td class="w-100 text-muted">{{ $order->note ?: "\u{2014}" }}</td>
                     </tr>
                 </table>
                 <p>
@@ -62,13 +62,13 @@
                 </p>
             </div>
             <div class="tab-pane" id="order-products" role="tabpanel" aria-labelledby="order-products-tab" tabindex="0">
-                <table class="table table-hover">
+                <table class="table table-hover mb-3">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Номенклатура</th>
                         <th scope="col" class="text-end">Кол-во</th>
-                        <th scope="col" class="text-end">Ед. изм</th>
+                        <th scope="col" class="text-center">Ед. изм</th>
                         <th scope="col" class="text-end">Цена</th>
                         <th scope="col" class="text-end">Сумма</th>
                     </tr>
@@ -78,11 +78,19 @@
                         <tr>
                             <th scope="row">{{ ++$key }}</th>
                             <td>{{ $item->title }}</td>
-                            <td>{{ $item->quantity }}</td>
+                            <td class="text-end">{{ $item->quantity_format }}</td>
+                            <td class="text-center">{{ $item->unit }}</td>
+                            <td class="text-end">{{ $item->price_format }}</td>
+                            <td class="text-end">{{ $item->amount_format }}</td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
+                <p class="text-end">
+                    Вес заказа: <strong>{{ $order->quantity_format }} кг</strong>
+                    <br>
+                    Сумма: <strong>{{ $order->amount_format }} руб.</strong>
+                </p>
             </div>
         </div>
     </div>
