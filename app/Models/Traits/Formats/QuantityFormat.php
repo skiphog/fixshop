@@ -16,7 +16,7 @@ trait QuantityFormat
     protected function quantityFormat(): Attribute
     {
         return Attribute::make(
-            get: static fn($value, $attributes) => formatting($attributes['quantity'] ?? 0),
+            get: static fn($value, $attributes) => formatting($attributes['quantity'] ?? 0, 3),
         );
     }
 }

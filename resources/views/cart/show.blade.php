@@ -88,7 +88,7 @@
 
         @include('partials.errors')
 
-        <form class="fix-section" action="{{ route('orders.store') }}" method="post">
+        <form id="order-form" class="fix-section" action="{{ route('orders.store') }}" method="post">
             <fieldset>
                 <legend>Информация о заказчике</legend>
                 <div class="mb-3">

@@ -29,8 +29,22 @@
             <div class="tab-pane show active" id="order-info" role="tabpanel" aria-labelledby="order-info-tab" tabindex="0">
                 <table class="table">
                     <tr>
-                        <td class="fw-bold">Статус:</td>
-                        <td class="w-100">{{ $order->status_text }}</td>
+                        <td class="fw-bold align-middle">Статус:</td>
+                        <td class="w-100">
+                            <form id="status-form" class="d-flex gap-3" action="{{ route('admin.orders.update', $order) }}" method="post">
+                                @csrf
+                                <div>
+                                    <select id="select-status" class="form-select" aria-label="Выбор статуса" name="status">
+                                        @foreach(\App\Models\Order::statusList() as $key => $value)
+                                            <option value="{{ $key }}" @selected($key === $order->status)>{{ $value }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="hidden">
+                                    <button class="btn btn-primary" type="submit">Сохранить</button>
+                                </div>
+                            </form>
+                        </td>
                     </tr>
                     <tr>
                         <td class="fw-bold">Организация:</td>
@@ -95,3 +109,15 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+      $('#select-status').on('change', function () {
+        $(this).parent().next().removeClass('hidden');
+      });
+
+      $('#status-form').on('submit', function () {
+        $(this).find('button[type=submit]').attr('disabled', 'disabled').html('<span class="spinner-grow spinner-grow-sm"></span> Обновляю ...');
+      });
+    </script>
+@endpush

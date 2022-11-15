@@ -6,7 +6,6 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\Formats\WeightFormat;
 use App\Models\Traits\Formats\AmountFormat;
-use App\Models\Traits\Formats\QuantityFormat;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -37,7 +36,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Order extends Model
 {
-    use QuantityFormat, WeightFormat, AmountFormat;
+    use WeightFormat, AmountFormat;
 
     /**
      * Статус заказов
@@ -45,8 +44,8 @@ class Order extends Model
     public const STATUS = [
         'NEW'       => 'new',
         'PENDING'   => 'pending',
+        'CANCELED'  => 'canceled',
         'COMPLETED' => 'completed',
-        'CANCELED'  => 'canceled'
     ];
 
     /**
@@ -69,8 +68,8 @@ class Order extends Model
         return [
             static::STATUS['NEW']       => 'Новый',
             static::STATUS['PENDING']   => 'В обработке',
-            static::STATUS['COMPLETED'] => 'Выполнен',
             static::STATUS['CANCELED']  => 'Отменён',
+            static::STATUS['COMPLETED'] => 'Выполнен',
         ];
     }
 
@@ -117,5 +116,16 @@ class Order extends Model
                 default                     => ''
             };
         });
+    }
+
+    /**
+     * @return Attribute
+     * @noinspection PhpUnused
+     */
+    protected function quantityFormat(): Attribute
+    {
+        return Attribute::make(
+            get: static fn($value, $attributes) => formatting($attributes['quantity'] ?? 0),
+        );
     }
 }

@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\Formats\WeightFormat;
 use App\Models\Traits\Formats\AmountFormat;
-use App\Models\Traits\Formats\QuantityFormat;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
@@ -25,7 +25,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class Cart extends Model
 {
-    use QuantityFormat, WeightFormat, AmountFormat;
+    use WeightFormat, AmountFormat;
 
     /**
      * @var string
@@ -48,5 +48,16 @@ class Cart extends Model
     public function items(): HasMany
     {
         return $this->hasMany(CartItem::class, 'cart_id', 'id');
+    }
+
+    /**
+     * @return Attribute
+     * @noinspection PhpUnused
+     */
+    protected function quantityFormat(): Attribute
+    {
+        return Attribute::make(
+            get: static fn($value, $attributes) => formatting($attributes['quantity'] ?? 0),
+        );
     }
 }

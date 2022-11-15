@@ -69,4 +69,11 @@ basket.on('click', '#cart-destroy', function () {
   $(this).prev().toggleClass('hidden');
 });
 
+$('#order-form').on('submit', function () {
+  $(this)
+    .find('button[type=submit]')
+    .attr('disabled', 'disabled')
+    .html('<span class="spinner-grow spinner-grow-sm"></span> Отправляю заказ ...');
+});
+
 $('#phone').mask('+7 (999) 999-99-99');
