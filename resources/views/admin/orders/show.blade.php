@@ -62,7 +62,27 @@
                 </p>
             </div>
             <div class="tab-pane" id="order-products" role="tabpanel" aria-labelledby="order-products-tab" tabindex="0">
-                <p>TAB #2</p>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Номенклатура</th>
+                        <th scope="col" class="text-end">Кол-во</th>
+                        <th scope="col" class="text-end">Ед. изм</th>
+                        <th scope="col" class="text-end">Цена</th>
+                        <th scope="col" class="text-end">Сумма</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($order->items as $key => $item)
+                        <tr>
+                            <th scope="row">{{ ++$key }}</th>
+                            <td>{{ $item->title }}</td>
+                            <td>{{ $item->quantity }}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
