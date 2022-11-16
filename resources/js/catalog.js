@@ -50,8 +50,6 @@ _c.on('keyup change', 'input[data-input]', function (e) {
   const v = i.val();
   const b = i.closest('.product').find('button[data-product]');
 
-  console.log(o, v);
-
   b.attr('disabled', function () {
     //return !i.val().length || i.val() === '' || isNaN(v) || v < 0;
     return !isInt(v);
