@@ -101,7 +101,7 @@
                     </tbody>
                 </table>
                 <p class="text-end">
-                    Вес заказа: <strong>{{ $order->quantity_format }} кг</strong>
+                    Вес заказа: <strong>{{ $order->weight_format }} кг</strong>
                     <br>
                     Сумма: <strong>{{ $order->amount_format }} руб.</strong>
                 </p>
