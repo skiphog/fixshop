@@ -48,7 +48,7 @@
                     </tr>
                     <tr>
                         <td class="fw-bold">Организация:</td>
-                        <td class="w-100">{{ $order->organization }}</td>
+                        <td class="w-100">{{ $order->organization ?: "\u{2014}" }}</td>
                     </tr>
                     <tr>
                         <td class="fw-bold">Имя:</td>
