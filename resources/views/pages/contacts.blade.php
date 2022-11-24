@@ -41,7 +41,7 @@
                                             </svg>
                                         </div>
                                         <h5>Адрес</h5>
-                                        <p class="">г. Усинск, ул. Нефтяников, 46</p>
+                                        <p class="">г. Нижний Новгород, ул. Ленина, 46</p>
                                     </div>
                                 </div>
                                 <div class="col-md-3 mb-4 mb-md-0">
@@ -53,10 +53,10 @@
                                         </div>
                                         <h5>Телефон</h5>
                                         <p class="mb-1">
-                                            <a class="text-decoration-none" href="tel:+78214423027">8 (82144) 23-0-27</a>
+                                            <a class="text-decoration-none" href="tel:+783120xxxxx">+7 (831) 20x‑xx‑xx</a>
                                         </p>
                                         <p>
-                                            <a class="text-decoration-none" href="tel:+79121700113">8-912-17-00-113</a>
+                                            <a class="text-decoration-none" href="tel:+7831211xxxx">+7 (831) 211‑xx‑xx</a>
                                         </p>
                                     </div>
                                 </div>
@@ -69,7 +69,7 @@
                                         </div>
                                         <h5>Электронная почта</h5>
                                         <p class="mb-1">
-                                            <a class="text-decoration-none" href="mailto:metiz-11@mail.ru">metiz-11@mail.ru</a>
+                                            <a class="text-decoration-none" href="mailto:fixshop@mail.ru">fixshop@mail.ru</a>
                                         </p>
                                     </div>
                                 </div>
