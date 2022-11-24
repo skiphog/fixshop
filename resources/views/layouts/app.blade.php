@@ -26,7 +26,7 @@
             <p class="col-md-4 mb-0 text-muted">&copy; {{ date('Y') }} &mdash; {{ config('app.name') }}</p>
 
             <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                <img class="d-inline-block" src="/images/logo.png" width="115" height="24" alt="{{ config('app.name') }}">
+                <img class="d-inline-block" src="/images/logo.svg" width="115" height="24" alt="{{ config('app.name') }}">
             </a>
 
             <ul class="nav col-md-4 justify-content-end">
