@@ -10,6 +10,7 @@
   "require": {
     "php": "^8.0.2",
     "ext-pdo": "*",
+    "genealabs/laravel-model-caching": "^0.12.5",
     "guzzlehttp/guzzle": "^7.2",
     "htmlmin/htmlmin": "^9.0",
     "laravel/framework": "^9.19",

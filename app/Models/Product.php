@@ -10,6 +10,7 @@ use App\Models\Traits\Formats\WeightFormat;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Traits\Formats\QuantityFormat;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
@@ -35,7 +36,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Product extends Model
 {
-    use SoftDeletes, Sortable, PriceFormat, WeightFormat, QuantityFormat;
+    use SoftDeletes, Sortable, PriceFormat, WeightFormat, QuantityFormat, Cachable;
 
     /**
      * @var string
